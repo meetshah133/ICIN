@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ICIN-frontend"
+    }
+  },
+  "defaultProject": "ICIN-frontend",
+  "cli": {
+    "analytics": "691c6296-1d8b-41fb-ad5e-740d2f55c76a"
+  }
 }
