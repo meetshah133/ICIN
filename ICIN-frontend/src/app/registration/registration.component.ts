@@ -12,7 +12,7 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.router.navigate(["register","personalDetails"]);
+ //   this.router.navigate(["register","personalDetails"]);
   }
 
 }

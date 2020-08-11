@@ -14,6 +14,10 @@ export class HomepageComponent implements OnInit {
 
   }
 
+  redirectToRegister(){
+    this.router.navigate(["register","personalDetails"]);
+  }
+
 
 
 }

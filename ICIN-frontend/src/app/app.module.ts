@@ -12,6 +12,7 @@ import { KycDetailsComponent } from './registration/subComponents/kyc-details/ky
 import { AddressDetailsComponent } from './registration/subComponents/address-details/address-details.component';
 import { UserRegistrationComponent } from './registration/subComponents/user-registration/user-registration.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     KycDetailsComponent,
     AddressDetailsComponent,
     UserRegistrationComponent,
-    HomepageComponent
+    HomepageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
