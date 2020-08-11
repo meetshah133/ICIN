@@ -11,7 +11,7 @@ import {UserServicesService} from '../service/user-services.service'
 export class LoginComponent implements OnInit {
 
   constructor(private router:Router,private formbuilder:FormBuilder,private service:UserServicesService) { }
-
+  submitted =false
   loginForm : FormGroup;
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   validateLogin(){
+    this.submitted = true;
     if(!this.loginForm.invalid){
       this.service.authenticateUser();
     }
