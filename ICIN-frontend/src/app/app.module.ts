@@ -10,6 +10,7 @@ import { ContactDetailsComponent } from './registration/subComponents/contact-de
 import { KycDetailsComponent } from './registration/subComponents/kyc-details/kyc-details.component';
 import { AddressDetailsComponent } from './registration/subComponents/address-details/address-details.component';
 import { UserRegistrationComponent } from './registration/subComponents/user-registration/user-registration.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserRegistrationComponent } from './registration/subComponents/user-reg
     ContactDetailsComponent,
     KycDetailsComponent,
     AddressDetailsComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
