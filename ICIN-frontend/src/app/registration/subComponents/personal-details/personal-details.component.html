@@ -5,8 +5,9 @@
 						<span class="fa fa-user"></span>
 					</span>                    
 				</div>
-				<input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" required="required">
+				<input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" required="required" [(ngModel)]="firstName" >
 			</div>
+			<p class="alert alert-warning mt-2" *ngIf="invalidFirstName">First Name is required</p>
         </div>
         
         <div class="form-group">
@@ -16,8 +17,9 @@
 						<span class="fa fa-user"></span>
 					</span>                    
 				</div>
-				<input type="text" class="form-control" name="lastName" placeholder="Last Name" required="required">
+				<input type="text" class="form-control" name="lastName" placeholder="Last Name" required="required" [(ngModel)]="lastName">
 			</div>
+			<p class="alert alert-warning mt-2" *ngIf="invalidLasttName">Last Name is required</p>
         </div>
 
           
