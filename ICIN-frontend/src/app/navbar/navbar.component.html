@@ -12,13 +12,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" routerLink="/login" (click)="isView()">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/register">Sign Up</a>
+            <a class="nav-link" routerLink="/register" (click)="isView()">Sign Up</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  
+<div *ngIf="view">
+  <app-homepage></app-homepage>
+</div>
