@@ -8,14 +8,16 @@ import { Router } from '@angular/router';
 })
 export class PersonalDetailsComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, ) { }
   firstName:String;
   lastName:String;
   invalidFirstName = false;
   invalidLasttName = false;
 
+
   ngOnInit(): void {
   }
+
 
   handlePersonalDetailsValidation(){
     if(this.firstName===undefined){
