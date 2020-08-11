@@ -13,6 +13,8 @@ import { AddressDetailsComponent } from './registration/subComponents/address-de
 import { UserRegistrationComponent } from './registration/subComponents/user-registration/user-registration.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     AddressDetailsComponent,
     UserRegistrationComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    NavigationComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,

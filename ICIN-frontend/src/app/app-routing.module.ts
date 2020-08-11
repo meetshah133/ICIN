@@ -7,6 +7,7 @@ import { KycDetailsComponent } from './registration/subComponents/kyc-details/ky
 import { AddressDetailsComponent } from './registration/subComponents/address-details/address-details.component';
 import { UserRegistrationComponent } from './registration/subComponents/user-registration/user-registration.component';
 import {RegistrationComponent} from './registration/registration.component';
+import {UserHomeComponent} from "./user-home/user-home.component"
 
 const routes: Routes = [
   {path:"register/contactDetails",component:ContactDetailsComponent},
@@ -15,7 +16,10 @@ const routes: Routes = [
   {path:"register/addressDetails",component:AddressDetailsComponent},
   {path:"register/userRegistration",component:UserRegistrationComponent},
   {path:"login",component:LoginComponent},
-  {path:"register",component:RegistrationComponent }
+  {path:"register",component:RegistrationComponent },
+  {path:"user/home",component:UserHomeComponent},
+  {path:"",component:LoginComponent},
+
 ];
 
 @NgModule({

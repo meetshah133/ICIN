@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if(!this.loginForm.invalid){
       this.service.authenticateUser();
+      this.router.navigate(["user","home"]);
     }
 
   }
