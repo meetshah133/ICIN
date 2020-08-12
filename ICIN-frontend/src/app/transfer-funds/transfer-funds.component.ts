@@ -20,7 +20,7 @@ export class TransferFundsComponent implements OnInit {
       beneficiaryName : ["",Validators.required],
       beneficiaryAccountNumber : ["",Validators.required],
       beneficiaryIFSCCode : ["",Validators.required],
-      amountToBeTransfered : ["",[Validators.required,Validators.pattern('/^-?(0|[1-9]\d*)?$/')]],
+      amountToBeTransfered : ["",[Validators.required]],
       optionalMessage : [""]
     })
     this.balanceFund = this.getBalance(this.account);
@@ -46,6 +46,12 @@ export class TransferFundsComponent implements OnInit {
     else{
       console.log("Valid form");
     }
+  }
+
+  public onChange(event): void {  // event will give you full breif of action
+    const newVal = event.target.value;
+    this.balanceFund = this.getBalance(newVal);
+   // console.log(newVal);
   }
 
 }

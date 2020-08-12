@@ -2,14 +2,14 @@
     <form [formGroup]="transferFundForm"> 
     <div class="form-group">
       <label for="accountType">Please select your account type</label>
-      <select class="form-control" id="accountType" name="accountType" formControlName="accountType">
+      <select class="form-control" id="accountType" name="accountType" formControlName="accountType" (change)="onChange($event)">
         <option>Primary Account</option>
         <option>Saving Account</option>
       </select>
     </div>
     <div class="form-group">
         <label for="accountBalance">Balance</label>
-        <input type="text" class="form-control" readonly id="accountBalance" placeholder formControlName="balance">
+        <input type="text" class="form-control" readonly id="accountBalance" placeholder formControlName="balance" value="{{balanceFund}}">
       </div>
     <div class="form-group">
         <label for="beneficiaryName">Beneficiary Name</label>
@@ -28,10 +28,10 @@
       </div>
       <div class="form-group">
         <label for="amountToBeTransfered">Beneficiary's Account Number</label>
-        <input type="text" class="form-control"  id="amountToBeTransfered" formControlName="amountToBeTransfered" 
-        [ngClass] = "{'is-invalid':submitted && f.amountToBeTransfered.errors}" >
-        <div *ngIf="f.amountToBeTransfered.errors" class="invalid-feedback">
-            <div *ngIf="f.amountToBeTransfered.errors.required">
+        <input type="text" class="form-control"  id="amountToBeTransfered" formControlName="beneficiaryAccountNumber" 
+        [ngClass] = "{'is-invalid':submitted && f.beneficiaryAccountNumber.errors}" >
+        <div *ngIf="f.beneficiaryAccountNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.beneficiaryAccountNumber.errors.required">
                 <p class="alert alert-warning mt-2">Beneficiary's Account Number is required!!</p> 
             </div>
         </div>
