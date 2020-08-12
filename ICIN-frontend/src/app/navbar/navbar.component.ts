@@ -32,5 +32,8 @@ export class NavbarComponent implements OnInit {
     sessionStorage.removeItem("isAuthenticatedUser");
     this.router.navigate(["login"]);
   }
+  viewProfile(){
+    this.router.navigate(["user","profile"]);
+  }
 
 }

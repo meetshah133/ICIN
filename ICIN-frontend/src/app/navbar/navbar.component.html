@@ -56,7 +56,7 @@
               {{service.getUserName()}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" >View Profile</a>
+              <a class="dropdown-item"(click)="viewProfile()" >View Profile</a>
               <a class="dropdown-item" (click)="handleLogout()">Logout</a>
             </div>
           </li>

@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md">
+      <div class="row">
+        <div class="card account profile">
+            <div class="card-header">
+                <img src="https://image.flaticon.com/icons/svg/151/151782.svg"  class="profile-pic" alt="User photo">
+                <br>
+                <span class="user">{{userName}}</span>
+            </div>
+            <div class="card-body">
+              <p class="card-text">First Name: </p>
+              <p class="card-text">Last Name:  </p>
+              <p class="card-text">Mobile Number: </p>
+              <p class="card-text">Email id: </p>
+            </div>
+          </div>
+    </div>
+      </div>
+      <div class="col-md">
+            <div class="row">
+                <div class="card account">
+                    <div class="card-header">
+                        <h5 class="card-title">Primary Account</h5>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">Account Number: {{primaryAccountNumber}}</p>
+                      <p class="card-text">Account Balance: {{primaryAccountBalance}} Rs</p>
+                      <a href="#" class="btn btn-primary">View more</a>
+                    </div>
+                  </div>
+            </div>
+        <div class="row">
+            <div class="card account">
+                <div class="card-header">
+                    <h5 class="card-title">Saving Account</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Account Number: {{savingAccountNumber}}</p>
+                  <p class="card-text">Account Balance: {{savingAccountBalance}} Rs</p>
+                  <a href="#" class="btn btn-primary">View more</a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
