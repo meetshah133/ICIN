@@ -24,7 +24,9 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
    //  console.log(this.loginForm.get("username").value);
     if(!this.loginForm.invalid){
-      this.service.authenticateUser();
+      if(this.service.authenticateUser()){
+        sessionStorage.setItem("isAuthenticatedUser",this.loginForm.get("username").value);
+      }
       this.router.navigate(["user","home"]);
     }
 
