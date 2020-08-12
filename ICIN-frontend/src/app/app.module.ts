@@ -14,6 +14,7 @@ import { UserRegistrationComponent } from './registration/subComponents/user-reg
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { ChequebookRequestComponent } from './chequebook-request/chequebook-request.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserHomeComponent } from './user-home/user-home.component';
     UserRegistrationComponent,
     HomepageComponent,
     NavbarComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    ChequebookRequestComponent
   ],
   imports: [
     BrowserModule,

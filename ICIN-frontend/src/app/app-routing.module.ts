@@ -8,6 +8,7 @@ import { AddressDetailsComponent } from './registration/subComponents/address-de
 import { UserRegistrationComponent } from './registration/subComponents/user-registration/user-registration.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {UserHomeComponent} from "./user-home/user-home.component"
+import { ChequebookRequestComponent } from './chequebook-request/chequebook-request.component';
 
 const routes: Routes = [
   {path:"register/contactDetails",component:ContactDetailsComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"register",component:RegistrationComponent },
   {path:"user/home",component:UserHomeComponent},
+  {path:"user/chequeBookRequest",component:ChequebookRequestComponent},
   {path:"",component:LoginComponent},
 
 ];

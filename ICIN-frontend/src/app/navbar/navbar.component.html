@@ -39,8 +39,8 @@
             Request
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Chequebook for Primary Account</a>
-            <a class="dropdown-item" href="#">Chequebook for Saving Account</a>
+            <a class="dropdown-item" (click)="handleChequeBookRequest('Primary Account')">Chequebook for Primary Account</a>
+            <a class="dropdown-item" (click)="handleChequeBookRequest('Saving Account')">Chequebook for Saving Account</a>
           </div>
         </li>
       </ul>

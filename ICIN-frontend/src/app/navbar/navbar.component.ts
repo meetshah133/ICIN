@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   view:boolean=true;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   
@@ -16,6 +17,10 @@ export class NavbarComponent implements OnInit {
 
   isView(){
     this.view=false;
+  }
+
+  handleChequeBookRequest(account){
+   this.router.navigate(["user","chequeBookRequest"],{state:{data:account}}); 
   }
 
 }
