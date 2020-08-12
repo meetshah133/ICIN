@@ -15,6 +15,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { ChequebookRequestComponent } from './chequebook-request/chequebook-request.component';
+import { TransferFundsComponent } from './transfer-funds/transfer-funds.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ChequebookRequestComponent } from './chequebook-request/chequebook-requ
     HomepageComponent,
     NavbarComponent,
     UserHomeComponent,
-    ChequebookRequestComponent
+    ChequebookRequestComponent,
+    TransferFundsComponent
   ],
   imports: [
     BrowserModule,

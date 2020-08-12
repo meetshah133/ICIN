@@ -19,6 +19,8 @@ export class ChequebookRequestComponent implements OnInit {
     this.chequeBookRequestForm = this.formbuilder.group({
       accountType:[this.account,[Validators.required]]
     })
+
+
   
   }
 
@@ -29,7 +31,8 @@ export class ChequebookRequestComponent implements OnInit {
   get f(){
     return this.chequeBookRequestForm.controls;
   }
-  
+
+
   
 
 }

@@ -23,4 +23,8 @@ export class NavbarComponent implements OnInit {
    this.router.navigate(["user","chequeBookRequest"],{state:{data:account}}); 
   }
 
+  handleTransferFundRequest(account){
+    this.router.navigate(["user","transferFundRequest"],{state:{data:account}}); 
+  }
+
 }

@@ -30,8 +30,8 @@
             Transfer
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">From Primary Account</a>
-            <a class="dropdown-item" href="#">From Saving Account</a>
+            <a class="dropdown-item" (click)="handleTransferFundRequest('Primary Account')">From Primary Account</a>
+            <a class="dropdown-item" (click)="handleTransferFundRequest('Saving Account')">From Saving Account</a>
           </div>
         </li>
         <li class="nav-item dropdown">

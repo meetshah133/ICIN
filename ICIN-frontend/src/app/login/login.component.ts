@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   validateLogin(){
     this.submitted = true;
+   //  console.log(this.loginForm.get("username").value);
     if(!this.loginForm.invalid){
       this.service.authenticateUser();
       this.router.navigate(["user","home"]);

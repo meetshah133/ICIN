@@ -9,6 +9,7 @@ import { UserRegistrationComponent } from './registration/subComponents/user-reg
 import {RegistrationComponent} from './registration/registration.component';
 import {UserHomeComponent} from "./user-home/user-home.component"
 import { ChequebookRequestComponent } from './chequebook-request/chequebook-request.component';
+import { TransferFundsComponent } from './transfer-funds/transfer-funds.component';
 
 const routes: Routes = [
   {path:"register/contactDetails",component:ContactDetailsComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"register",component:RegistrationComponent },
   {path:"user/home",component:UserHomeComponent},
   {path:"user/chequeBookRequest",component:ChequebookRequestComponent},
+  {path:"user/transferFundRequest",component:TransferFundsComponent},
   {path:"",component:LoginComponent},
 
 ];
