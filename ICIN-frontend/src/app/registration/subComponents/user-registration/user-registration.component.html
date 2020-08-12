@@ -24,7 +24,7 @@
                 <i class="fa fa-lock"></i>
             </span>                    
         </div>
-        <input type="text" class="form-control" [(ngModel)]="password" name="password" placeholder="Password (min 8 characters)" required="required" >
+        <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password (min 8 characters)" required="required" >
     </div>
     <p class="alert alert-warning mt-2" *ngIf="invalidPassword">Password is invalid</p>
 
@@ -37,7 +37,7 @@
                 
             </span>                    
         </div>
-        <input type="text" class="form-control" [(ngModel)]="confirmPassword" name="confirm_password" placeholder="Confirm Password" required="required" >
+        <input type="password" class="form-control" [(ngModel)]="confirmPassword" name="confirm_password" placeholder="Confirm Password" required="required" >
     </div>
     <p class="alert alert-warning mt-2" *ngIf="invalidConfirmPassword">Confirm password is invalid</p>
 
