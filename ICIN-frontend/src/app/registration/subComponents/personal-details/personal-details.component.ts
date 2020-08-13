@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 export class PersonalDetailsComponent implements OnInit {
 
   constructor(private router : Router, ) { }
-  firstName:String;
-  lastName:String;
+  firstName:string;
+  lastName:string;
   invalidFirstName = false;
   invalidLasttName = false;
 
@@ -27,6 +27,8 @@ export class PersonalDetailsComponent implements OnInit {
       this.invalidLasttName = true;
     }
     else {
+    sessionStorage.setItem("firstName",this.firstName);
+    sessionStorage.setItem("lastName",this.lastName);
     this.router.navigate(["register","contactDetails"]);
     }
   }

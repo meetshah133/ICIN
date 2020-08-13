@@ -17,6 +17,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { ChequebookRequestComponent } from './chequebook-request/chequebook-request.component';
 import { TransferFundsComponent } from './transfer-funds/transfer-funds.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import {HttpClientModule}  from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

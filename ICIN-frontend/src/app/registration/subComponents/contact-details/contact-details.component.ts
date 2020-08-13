@@ -23,7 +23,10 @@ export class ContactDetailsComponent implements OnInit {
   validateContactDetails(){
     
     if(this.contactForm.valid )
+    {   sessionStorage.setItem("phonenumber",this.contactForm.get("phone").value);
+        sessionStorage.setItem("mailid",this.contactForm.get("email").value);
         this.router.navigate(["register","kycDetails"]);
+     }
   }
 
   

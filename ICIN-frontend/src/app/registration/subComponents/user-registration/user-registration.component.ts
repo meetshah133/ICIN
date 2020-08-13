@@ -1,6 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsModule,FormGroup,FormControl,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserServicesService } from 'src/app/service/user-services.service';
+
+export class User {
+  constructor( private fullname:String,
+    private  surname:String,
+    private  mailid:String,
+    private  phonenumber:number,
+    private  address:String,
+    private  password:String){
+
+    }
+ 
+}
 
 
 @Component({
@@ -11,9 +24,9 @@ import { Router } from '@angular/router';
 })
 export class UserRegistrationComponent implements OnInit {
 
-  constructor(private route:Router,private formbuilder:FormBuilder) { }
-  userName:String="";
-  password:String="";
+  constructor(private route:Router,private formbuilder:FormBuilder,private service:UserServicesService) { }
+  userName:string="";
+  password:string="";
   confirmPassword:String="";
   invalidUserName = false;
   invalidPassword = false;
@@ -43,8 +56,24 @@ export class UserRegistrationComponent implements OnInit {
       return;
     }
     else{
+      sessionStorage.setItem("password",this.password);
       console.log("Done");
-      //Route to home page
+      this.service.addUSerToDb().subscribe( 
+        response => {
+          if(response){
+            sessionStorage.removeItem("firstName");
+            sessionStorage.removeItem("lastName");
+            sessionStorage.removeItem("address");
+            sessionStorage.removeItem("mailid");
+            sessionStorage.removeItem("phonenumber");
+          }
+        },
+        error => {
+          console.log(error);
+        }
+
+      );
+
     }
   }
 

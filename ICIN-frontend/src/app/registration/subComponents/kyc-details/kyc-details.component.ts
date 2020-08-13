@@ -10,7 +10,9 @@ import {FormGroup,FormControl,Validators,FormBuilder, Form}  from "@angular/form
 export class KycDetailsComponent implements OnInit {
 
   constructor(private router:Router,private formbuilder:FormBuilder) { }
+  age:number;
   kycForm:FormGroup;
+  invalidAge = false;
   ngOnInit(): void {
     this.kycForm = this.formbuilder.group({
       pan : ["",[Validators.required]],
@@ -18,6 +20,17 @@ export class KycDetailsComponent implements OnInit {
     })
   }
   validateKyc(){
+    console.log(this.kycForm.get("dob").value);
+    let currentDate:any =  new Date(this.kycForm.get("dob").value);
+    let timeDiff =  Math.abs(Date.now() - currentDate)
+    this.age = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
+    console.log(this.age);
+    if(this.age<10){
+      this.invalidAge = true;
+      return;
+    }
+
+    //age =  2020-this.kycForm.get("dob").value;
     if(!this.kycForm.invalid)
        this.router.navigate(["register","addressDetails"])
   }

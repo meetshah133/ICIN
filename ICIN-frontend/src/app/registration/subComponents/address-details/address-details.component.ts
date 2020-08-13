@@ -17,11 +17,12 @@ export class AddressDetailsComponent implements OnInit {
   invalidAddressLine4:boolean=false;
   invalidAddressLine5:boolean=false;
 
-  addressLine1:String="";
-  addressLine2:String="";
-  addressLine3:String="";
-  addressLine4:String="";
-  addressLine5:String="";
+  addressLine1:string="";
+  addressLine2:string="";
+  addressLine3:string="";
+  addressLine4:string="";
+  addressLine5:string="";
+  fullAddress:string;
 
   addressArray:String[]
   invalidAddressArray:boolean[]
@@ -50,6 +51,8 @@ export class AddressDetailsComponent implements OnInit {
        this.invalidAddressLine5 = true;
      }
      else{
+      this.fullAddress = this.addressLine1 + " " + this.addressLine2  + " " + this.addressLine3 + " " +this.addressLine4 + " " +this.addressLine5;
+      sessionStorage.setItem("address",this.fullAddress);
       this.router.navigate(["register","userRegistration"])
      }
     }
