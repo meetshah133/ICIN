@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
   }
   handleLogout(){
     sessionStorage.removeItem("isAuthenticatedUser");
+    sessionStorage.clear();
     this.router.navigate(["login"]);
   }
   viewProfile(){

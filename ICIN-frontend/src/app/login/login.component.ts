@@ -33,6 +33,11 @@ export class LoginComponent implements OnInit {
           console.log(response),
           sessionStorage.removeItem("password");
           sessionStorage.setItem("isAuthenticatedUser",response["fullname"]);
+          sessionStorage.setItem("mailid",response["mailid"]);
+          sessionStorage.setItem("phonenumber",response["phonenumber"]);
+          sessionStorage.setItem("firstname",response["fullname"]);
+          sessionStorage.setItem("lastname",response["surname"]);
+
           this.router.navigate(["user","home"]);
         },
         error => console.log(error)
