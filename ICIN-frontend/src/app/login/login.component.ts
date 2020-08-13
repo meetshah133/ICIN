@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup;
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
-      username: ["",Validators.required],
+      email : ["",[Validators.required,Validators.email]],
       password: ["",Validators.required],
     })
   }
@@ -23,11 +23,21 @@ export class LoginComponent implements OnInit {
   validateLogin(){
     this.submitted = true;
    //  console.log(this.loginForm.get("username").value);
+
+   
     if(!this.loginForm.invalid){
-      if(this.service.authenticateUser()){
-        sessionStorage.setItem("isAuthenticatedUser",this.loginForm.get("username").value);
-      }
-      this.router.navigate(["user","home"]);
+      sessionStorage.setItem("mailid",this.loginForm.get("email").value);
+      sessionStorage.setItem("password",this.loginForm.get("password").value);
+      this.service.authenticateUser().subscribe(
+        response => {
+          console.log(response),
+          sessionStorage.removeItem("password");
+          sessionStorage.setItem("isAuthenticatedUser",response["fullname"]);
+          this.router.navigate(["user","home"]);
+        },
+        error => console.log(error)
+      )
+
     }
 
   }

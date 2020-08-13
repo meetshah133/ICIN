@@ -10,10 +10,11 @@
 						<span class="fa fa-user"></span>
 					</span>                    
 				</div>
-				<input type="text" class="form-control" name="username" placeholder="Username" required="required" formControlName="username" [ngClass]="{ 'is-invalid': submitted &&  f.username.errors }" >
-				<div *ngIf="f.username.errors" class="invalid-feedback">
-					<div *ngIf="f.username.errors.required">    <p class="alert alert-warning mt-2" >Username is required</p>  </div>
-			</div>
+				<input type="text" class="form-control" name="email" placeholder="Email address" required="required" formControlName="email" [ngClass]="{ 'is-invalid': submitted &&  f.email.errors }" >
+				<div *ngIf="f.email.errors" class="invalid-feedback">
+					<div *ngIf="f.email.errors.required">    <p class="alert alert-warning mt-2" >Email is required</p>  </div>
+					<div *ngIf="f.email.errors.email"> <p class="alert alert-warning mt-2" >Email must be a valid email address</div>
+				</div>
 			</div>
 			
         </div>

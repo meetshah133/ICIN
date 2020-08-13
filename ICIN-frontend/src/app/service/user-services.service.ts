@@ -20,7 +20,8 @@ export class UserServicesService {
 
   authenticateUser(){
       console.log("Verifying user");
-      return true;
+      return this.http.post("http://localhost:8090/login",
+      new User("","",sessionStorage.getItem("mailid"),null,"",sessionStorage.getItem("password")));
   }
   isUserLogin(){
     let user = sessionStorage.getItem("isAuthenticatedUser");
