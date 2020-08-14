@@ -11,6 +11,7 @@ import {UserHomeComponent} from "./user-home/user-home.component"
 import { ChequebookRequestComponent } from './chequebook-request/chequebook-request.component';
 import { TransferFundsComponent } from './transfer-funds/transfer-funds.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DepositFundsComponent } from './deposit-funds/deposit-funds.component';
 
 const routes: Routes = [
   {path:"register/contactDetails",component:ContactDetailsComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:"user/chequeBookRequest",component:ChequebookRequestComponent},
   {path:"user/transferFundRequest",component:TransferFundsComponent},
   {path:"user/profile",component:UserProfileComponent},
+  {path:"user/depositFund",component:DepositFundsComponent},
   {path:"",component:LoginComponent},
 
 ];
