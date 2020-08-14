@@ -19,6 +19,7 @@ import { TransferFundsComponent } from './transfer-funds/transfer-funds.componen
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {HttpClientModule}  from '@angular/common/http';
 import { DepositFundsComponent } from './deposit-funds/deposit-funds.component';
+import { WithdrawFundComponent } from './withdraw-fund/withdraw-fund.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DepositFundsComponent } from './deposit-funds/deposit-funds.component';
     ChequebookRequestComponent,
     TransferFundsComponent,
     UserProfileComponent,
-    DepositFundsComponent
+    DepositFundsComponent,
+    WithdrawFundComponent
   ],
   imports: [
     BrowserModule,
