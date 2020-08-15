@@ -35,7 +35,7 @@ export class TransferFundsComponent implements OnInit {
   submitted:boolean = false;
   ngOnInit(): void {
     this.transferFundForm = this.formBuilder.group({
-      accountType: [this.account],
+      accountType: ["Primary Account"],
       balance : [this.balanceFund],
       beneficiaryName : ["",Validators.required],
       beneficiaryAccountNumber : ["",Validators.required],

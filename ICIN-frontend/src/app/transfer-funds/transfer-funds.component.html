@@ -1,7 +1,7 @@
 <div class="jumbotron bg-light text-dark p-10">
     <form [formGroup]="transferFundForm"> 
     <div class="form-group">
-      <label for="accountType">Please select your account type</label>
+      <label for="accountType">Account Type</label>
       <select class="form-control" id="accountType" name="accountType" formControlName="accountType" (change)="onChange($event)">
         <option>Primary Account</option>
       </select>
@@ -18,12 +18,6 @@
     </div>
         
 
-        <!--
-            formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
-				<div *ngIf="f.password.errors" class="invalid-feedback">
-					<div *ngIf="f.password.errors.required">    <p class="alert alert-warning mt-2" >Password is required</p>  </div>
-			</div>
-        -->
       </div>
       <div class="form-group">
         <label for="amountToBeTransfered">Beneficiary's Account Number</label>
