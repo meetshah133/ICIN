@@ -20,6 +20,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import {HttpClientModule}  from '@angular/common/http';
 import { DepositFundsComponent } from './deposit-funds/deposit-funds.component';
 import { WithdrawFundComponent } from './withdraw-fund/withdraw-fund.component';
+import { PrimaryAccountComponent } from './primary-account/primary-account.component';
+import { SavingAccountComponent } from './saving-account/saving-account.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { WithdrawFundComponent } from './withdraw-fund/withdraw-fund.component';
     TransferFundsComponent,
     UserProfileComponent,
     DepositFundsComponent,
-    WithdrawFundComponent
+    WithdrawFundComponent,
+    PrimaryAccountComponent,
+    SavingAccountComponent
   ],
   imports: [
     BrowserModule,

@@ -21,5 +21,10 @@ export class UserHomeComponent implements OnInit {
     this.router.navigate(["user","withdrawFund",{state:{data:account}}]);
 
   }
+  handleAccount(account){
+    if(account==="Primary"){
+      this.router.navigate(["user","primaryAccount"]);
+    }
+  }
 
 }

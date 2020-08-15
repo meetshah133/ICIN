@@ -12,6 +12,7 @@ export class KycDetailsComponent implements OnInit {
   constructor(private router:Router,private formbuilder:FormBuilder) { }
   age:number;
   kycForm:FormGroup;
+  invalidPan:any;
   invalidAge = false;
   ngOnInit(): void {
     this.kycForm = this.formbuilder.group({
@@ -29,11 +30,24 @@ export class KycDetailsComponent implements OnInit {
       this.invalidAge = true;
       return;
     }
+    if(!this.checkPancardValidity(this.kycForm.get("pan").value)){
+      this.invalidPan = true;
+      return;
+    }
+    
 
     //age =  2020-this.kycForm.get("dob").value;
     if(!this.kycForm.invalid)
        this.router.navigate(["register","addressDetails"])
   }
+
+  checkPancardValidity(pan) {
+    let letter = /[a-zA-Z]/; 
+    let number = /[0-9]/;
+    let valid = number.test(pan) && letter.test(pan); //match a letter _and_ a number
+    console.log(valid);
+    return valid;
+}
 
   get f() { return this.kycForm.controls; }
 }

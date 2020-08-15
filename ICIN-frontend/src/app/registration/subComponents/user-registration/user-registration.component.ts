@@ -24,7 +24,7 @@ export class User {
 })
 export class UserRegistrationComponent implements OnInit {
 
-  constructor(private route:Router,private formbuilder:FormBuilder,private service:UserServicesService) { }
+  constructor(private router:Router,private formbuilder:FormBuilder,private service:UserServicesService) { }
   userName:string="";
   password:string="";
   confirmPassword:String="";
@@ -43,10 +43,14 @@ export class UserRegistrationComponent implements OnInit {
       this.invalidUserName = true;
       return;
     }
+
     if(this.password.length<8){
       this.invalidPassword = true;
       return;
     }
+    if(!this.checkPassword(this.password)){
+      this.invalidPassword = true;
+     }
     if(this.confirmPassword.length<8 ||this.confirmPassword!==this.password){
       this.invalidConfirmPassword = true;
       return;
@@ -55,6 +59,7 @@ export class UserRegistrationComponent implements OnInit {
       this.invalidTnc = true;
       return;
     }
+  
     else{
       sessionStorage.setItem("password",this.password);
       console.log("Done");
@@ -66,15 +71,24 @@ export class UserRegistrationComponent implements OnInit {
             sessionStorage.removeItem("address");
             sessionStorage.removeItem("mailid");
             sessionStorage.removeItem("phonenumber");
+            this.router.navigate(["login"]);
           }
         },
         error => {
           console.log(error);
+          alert("Registration Failed");
         }
 
       );
 
     }
+  }
+  checkPassword(password){
+    let letter = /[a-zA-Z]/; 
+    let number = /[0-9]/;
+    let symbol = /[,_#@]*$/
+    let valid = number.test(password) && letter.test(password); //match a letter _and_ a number
+    return valid;
   }
 
 }

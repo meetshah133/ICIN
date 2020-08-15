@@ -3,6 +3,7 @@ import {FormsModule,FormGroup,FormBuilder,FormControl, Validators} from '@angula
 import { Router } from '@angular/router';
 import {UserServicesService} from '../service/user-services.service'
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,7 +24,6 @@ export class LoginComponent implements OnInit {
   validateLogin(){
     this.submitted = true;
    //  console.log(this.loginForm.get("username").value);
-
    
     if(!this.loginForm.invalid){
       sessionStorage.setItem("mailid",this.loginForm.get("email").value);
@@ -40,7 +40,10 @@ export class LoginComponent implements OnInit {
 
           this.router.navigate(["user","home"]);
         },
-        error => console.log(error)
+        error => {
+         // alert("Invalid Credentials") 
+        alert(error["error"]["message"])
+      }
       )
 
     }

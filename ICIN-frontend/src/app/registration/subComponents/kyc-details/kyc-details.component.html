@@ -27,10 +27,13 @@
                 <i class="fa fa-id-card-o"></i>
             </span>                    
         </div>
-        <input type="text" class="form-control" name="pancard" placeholder="Pancard Number" required="required" formControlName="pan" [ngClass]="{ 'is-invalid':  f.pan.errors }" >
+        <input type="text" class="form-control" name="pancard" placeholder="Pancard Number" required="required" formControlName="pan" [ngClass]="{ 'is-invalid':  f.pan.errors }" ng-pattern="/^[a-zA-Z0-9]+$/" required >
         <div *ngIf="f.pan.errors" class="invalid-feedback">
             <div *ngIf="f.pan.errors.required">    <p class="alert alert-warning mt-2" >Pan card Number is required</p>  </div>
         </div>
+        <p class="alert alert-warning mt-2" *ngIf="invalidPan" >Pan number must be alpha numeric </p> 
+
+       
     </div>
 </div>
   
