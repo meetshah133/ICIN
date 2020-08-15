@@ -19,6 +19,7 @@ export class UserProfileComponent implements OnInit {
   lastname = sessionStorage.getItem("lastname");
   phonenumber = sessionStorage.getItem("phonenumber");
   email = sessionStorage.getItem("mailid");
+  address = sessionStorage.getItem("address");
   ngOnInit(): void {
     this.savingAccountNumber = "123478151616161";
     this.savingAccountBalance = 1000;

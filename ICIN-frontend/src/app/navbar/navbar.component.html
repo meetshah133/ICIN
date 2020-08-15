@@ -25,13 +25,11 @@
             <a class="dropdown-item" (click)="handleAccount('Saving')">Saving</a>
           </div>
         </li>
-        <li class="nav-item dropdown" *ngIf="service.isUserLogin()">
-          <a class="nav-link dropdown-toggle ml-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item " *ngIf="service.isUserLogin()"  (click)="handleTransferFundRequest('Primary Account')" >
+          <a class="nav-link  ml-2" (click)="handleTransferFundRequest('Primary Account')" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Transfer
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="handleTransferFundRequest('Primary Account')">From Primary Account</a>
-          </div>
+        
         </li>
         <li class="nav-item dropdown" *ngIf="service.isUserLogin()">
           <a class="nav-link dropdown-toggle ml-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -22,6 +22,7 @@ import com.service.TransactionService;
  *
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class AccountController {
     
     /**

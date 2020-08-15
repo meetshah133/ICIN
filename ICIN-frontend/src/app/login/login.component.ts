@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("phonenumber",response["phonenumber"]);
           sessionStorage.setItem("firstname",response["fullname"]);
           sessionStorage.setItem("lastname",response["surname"]);
+          sessionStorage.setItem("address",response["address"]);
 
           this.router.navigate(["user","home"]);
         },

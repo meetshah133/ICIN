@@ -20,8 +20,8 @@
 
       </div>
       <div class="form-group">
-        <label for="amountToBeTransfered">Beneficiary's Account Number</label>
-        <input type="text" class="form-control"  id="amountToBeTransfered" formControlName="beneficiaryAccountNumber" 
+        <label for="beneficiaryAccountNumber">Beneficiary's Account Number</label>
+        <input type="text" class="form-control"  id="beneficiaryAccountNumber" formControlName="beneficiaryAccountNumber" 
         [ngClass] = "{'is-invalid':submitted && f.beneficiaryAccountNumber.errors}" >
         <div *ngIf="f.beneficiaryAccountNumber.errors" class="invalid-feedback">
             <div *ngIf="f.beneficiaryAccountNumber.errors.required">
@@ -40,8 +40,8 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="beneficiaryAccountNumber">Amount to be transferred</label>
-        <input type="number" class="form-control"  id="beneficiaryAccountNumber" formControlName="amountToBeTransfered" 
+        <label for="amountToBeTransfered">Amount to be transferred</label>
+        <input type="number" class="form-control"  id="amountToBeTransfered" formControlName="amountToBeTransfered" 
         [ngClass]="{'is-invalid':submitted && f.amountToBeTransfered.errors}">
         <div *ngIf="f.amountToBeTransfered.errors" class="invalid-feedback">
             <div *ngIf="f.amountToBeTransfered.errors.required">
@@ -49,11 +49,19 @@
             </div>
         </div>
       </div>
+      <div class="form-group">
+        <label for="transferType">Transfer Type</label>
+        <select class="form-control" id="accountType" name="transferType" formControlName="transferType">
+          <option>IMPS</option>
+          <option>NEFT</option>
+          <option>RTGS</option>
+        </select>
+      </div>
     <div class="form-group">
       <label for="Description">Optional Message</label>
       <textarea class="form-control" id="description" rows="1"></textarea>
     </div>
-    <button type="button" class="btn btn-primary" (click)="handleTransferFund()">Transfer Funds</button>
+    <button type="button" class="btn btn-primary" id="tranferFundButton" (click)="handleTransferFund()">Transfer Funds</button>
   </form>
 </div>
 

@@ -41,6 +41,7 @@ export class TransferFundsComponent implements OnInit {
       beneficiaryAccountNumber : ["",Validators.required],
       beneficiaryIFSCCode : ["",Validators.required],
       amountToBeTransfered : ["",[Validators.required]],
+      transferType : ["IMPS"],
       optionalMessage : [""]
     })
     this.balanceFund = this.getBalance(this.account);

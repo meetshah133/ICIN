@@ -1,0 +1,35 @@
+package icinTesting.ICIN_test;
+
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class LoginTest {
+	WebDriver driver;
+	@BeforeTest
+	public void setUp() {
+		System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromeDriver\\chromeDriver.exe");
+		driver =  new ChromeDriver(); 
+		driver.get("localhost:4200/login");
+	}
+	
+	@Test
+	public void loginUser() {
+		driver.findElement(By.cssSelector("input[name='email']")).sendKeys("meetshah133@gmail.com");
+		driver.findElement(By.cssSelector("input[name='password']")).sendKeys("abc@1234");
+		driver.findElement(By.id("loginButton")).click();
+		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/user/home");
+
+	}
+	
+	@AfterTest
+	public void cleanUp() {
+		driver.close();
+	}
+
+}
