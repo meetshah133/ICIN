@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormsModule,FormGroup,FormBuilder,FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import {UserServicesService} from '../service/user-services.service'
-import {User} from  '../registration/subComponents/user-registration/user-registration.component';
-
 
 @Component({
   selector: 'app-login',
@@ -25,10 +23,12 @@ export class LoginComponent implements OnInit {
   validateLogin(){
     this.submitted = true;
    //  console.log(this.loginForm.get("username").value);
+
    
     if(!this.loginForm.invalid){
-      let newUser = new User("","",this.loginForm.get("email").value,null,"",this.loginForm.get("password").value);
-      this.service.authenticateUser(newUser).subscribe(
+      sessionStorage.setItem("mailid",this.loginForm.get("email").value);
+      sessionStorage.setItem("password",this.loginForm.get("password").value);
+      this.service.authenticateUser().subscribe(
         response => {
           console.log(response),
           sessionStorage.removeItem("password");
@@ -37,13 +37,11 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("phonenumber",response["phonenumber"]);
           sessionStorage.setItem("firstname",response["fullname"]);
           sessionStorage.setItem("lastname",response["surname"]);
-
+          sessionStorage.setItem("primaryAccNo",response["primaryAccount"]["accountNumber"]);
+          sessionStorage.setItem("savingsAccNo" , response["savingsAccount"]["accountNumber"]);
           this.router.navigate(["user","home"]);
         },
-        error => {
-         // alert("Invalid Credentials") 
-        alert("Login failed!!")
-      }
+        error => console.log(error)
       )
 
     }

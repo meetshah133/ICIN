@@ -1,0 +1,58 @@
+<div class="signup-form">
+    <form >
+		<h2>Sign Up</h2>
+		<p>Please fill in this form to create an account!</p>
+        <hr>
+        <router-outlet>
+<div class="form-group">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                <span class="fa fa-user"></span>
+            </span>                    
+        </div>
+        <input type="text" [(ngModel)]="userName" class="form-control" name="userName" id="userName" placeholder="User Name" required="required" >
+    </div>
+    <p class="alert alert-warning mt-2" *ngIf="invalidUserName">User Name is required</p>
+
+</div>
+
+<div class="form-group">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                <i class="fa fa-lock"></i>
+            </span>                    
+        </div>
+        <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password (min 8 characters)" required="required" >
+    </div>
+    <p class="alert alert-warning mt-2" *ngIf="invalidPassword">Password is invalid</p>
+
+</div>
+<div class="form-group">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                <i class="fa fa-lock"></i>
+                
+            </span>                    
+        </div>
+        <input type="password" class="form-control" [(ngModel)]="confirmPassword" name="confirm_password" placeholder="Confirm Password" required="required" >
+    </div>
+    <p class="alert alert-warning mt-2" *ngIf="invalidConfirmPassword">Confirm password is invalid</p>
+
+</div>
+  
+<div class="form-group">
+    <label class="form-check-label"><input type="checkbox" [(ngModel)]="checked" name="tnc" required="required" > I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+</div>
+<p class="alert alert-warning mt-2" name="tnc" *ngIf="invalidTnc">Please accept terms and conditions</p>
+
+<div class="form-group">
+    <button type="button" class="btn btn-primary btn-md" (click)="validateUserDetails()">Sign Up</button>
+</div>
+
+
+</router-outlet>
+</form>
+<div class="text-center ">Already have an account? <a href="#" class="text-white" routerLink="/login">Login here</a></div>
