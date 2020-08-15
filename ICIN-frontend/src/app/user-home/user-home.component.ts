@@ -9,9 +9,13 @@ import { Router } from '@angular/router';
 export class UserHomeComponent implements OnInit {
 
   constructor(private router:Router) { }
-
+  primaryAccountBalance;
+  savingAccountBalance;
   ngOnInit(): void {
+    this.primaryAccountBalance = sessionStorage.getItem("primaryAccountBalance")
+    this.savingAccountBalance = sessionStorage.getItem("savingAccountBalance")
   }
+  
 
   handleDeposit(account){
     this.router.navigate(["user","depositFund",{state:{data:account}}]);

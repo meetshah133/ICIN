@@ -15,7 +15,7 @@ export class UserServicesService {
     //this.http.post("http://localhost:8090/register",user);
     //return this.http.get("http://localhost:8090/hello",{responseType: 'text'})
     return this.http.post("http://localhost:8090/register",
-    new User(sessionStorage.getItem("firstName"),sessionStorage.getItem("lastName"),sessionStorage.getItem("mailid"),Number(sessionStorage.getItem("phonenumber")),sessionStorage.getItem("address"),sessionStorage.getItem("password")));
+    new User(sessionStorage.getItem("firstName"),sessionStorage.getItem("lastName"),sessionStorage.getItem("mailid"),Number(sessionStorage.getItem("phonenumber")),sessionStorage.getItem("address"),sessionStorage.getItem("password"),null,null));
     
   }
 

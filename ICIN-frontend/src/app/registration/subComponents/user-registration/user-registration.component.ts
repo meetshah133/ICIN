@@ -9,7 +9,9 @@ export class User {
     private  mailid:String,
     private  phonenumber:number,
     private  address:String,
-    private  password:String){
+    private  password:String,
+    private PrimaryAccount:any,
+    private SavingAccount:any){
 
     }
  

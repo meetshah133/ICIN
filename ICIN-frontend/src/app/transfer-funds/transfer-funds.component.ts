@@ -65,7 +65,8 @@ export class TransferFundsComponent implements OnInit {
       console.log("Invalid")
     }
     else{
-      let newTransaction = new Transaction(new Date(),"Sample transaction",100,123,124,"AN32");
+      let newTransaction = new Transaction(new Date(),"Fund Transfer",
+      Number(this.transferFundForm.get("amountToBeTransfered").value),2,3,"ANUP5161");
       this.service.transferFund(newTransaction).subscribe(
         response => alert("Transaction Successfull"),
         error => alert("Transaction failed")

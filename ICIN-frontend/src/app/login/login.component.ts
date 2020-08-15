@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
    //  console.log(this.loginForm.get("username").value);
    
     if(!this.loginForm.invalid){
-      let newUser = new User("","",this.loginForm.get("email").value,null,"",this.loginForm.get("password").value);
+      let newUser = new User("","",this.loginForm.get("email").value,null,"",this.loginForm.get("password").value,null,null);
       this.service.authenticateUser(newUser).subscribe(
         response => {
           console.log(response),
@@ -38,6 +38,11 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("firstname",response["fullname"]);
           sessionStorage.setItem("lastname",response["surname"]);
           sessionStorage.setItem("address",response["address"]);
+          sessionStorage.setItem("primaryAccountNumber",response["primaryAccount"]["accountNumber"]);
+          sessionStorage.setItem("primaryAccountBalance",response["primaryAccount"]["accountBalance"]);
+          sessionStorage.setItem("savingAccountNumber",response["savingsAccount"]["accountNumber"]);
+          sessionStorage.setItem("savingAccountBalance",response["savingsAccount"]["accountBalance"]);
+          //primaryAccount: {accountNumber: 22113346, accountBalance: 0}
 
           this.router.navigate(["user","home"]);
         },
