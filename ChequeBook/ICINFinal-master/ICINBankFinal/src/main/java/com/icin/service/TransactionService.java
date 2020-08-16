@@ -26,5 +26,5 @@ public interface TransactionService {
      */
     public void transferMoney(Transaction transaction);
     
-    public int retreiveAccountNumber(Long id);
+    public long retreiveAccountNumber(Long id);
 }

@@ -7,29 +7,21 @@
       <h5 class="card-title">Recent Transactions</h5>
       <table class="table">
         <thead>
-          <tr>
-            <th scope="col">Sr. Number</th>
-            <th scope="col">Date</th>
-            <th scope="col">Type</th>
+          <tr> 
+            <th scope="col">Transaction Id</th>
+            <th scope="col">Description</th>
+            <th scope="col">Benificiary's Account Number</th>
             <th scope="col">Amount</th>
-            <th scope="col">Balance</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>11/08/2020</td>
-            <td>Credit</td>
-            <td>100</td>
-            <td>1000</td>
+          <tr *ngFor="let transaction of transactions">
+            <th scope="row">{{transaction["transactionId"]}}</th>
+            <td>{{transaction["description"]}}</td>
+            <td>{{transaction["destinationAccountnumber"]}}</td>
+            <td>{{transaction["transactionAmount"]}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>10/08/2020</td>
-            <td>Debit</td>
-            <td>200</td>
-            <td>900</td>
-          </tr>
+          
         </tbody>
       </table>
     </div>

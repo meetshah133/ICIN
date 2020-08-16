@@ -53,7 +53,7 @@ public class PrimaryAccountServiceImpl implements PrimaryAccountService {
 	}
 
 	@Override
-	public void deposit(Integer accNo, Long amount) {
+	public void deposit(Long accNo, Long amount) {
 		//System.out.println(accNo);
 		
       	PrimaryAccount primaryAccount = primaryAccountDao.findByAccountNumber(accNo);

@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class SavingAccountComponent implements OnInit {
 
   constructor() { }
-  acocuntNumber = "515615661651189";
-  balance=500;
+  acocuntNumber = sessionStorage.getItem("savingAccountNumber");
+  balance=sessionStorage.getItem("savingAccountBalance");
   ngOnInit(): void {
   }
 

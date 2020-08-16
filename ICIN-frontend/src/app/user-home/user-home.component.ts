@@ -18,6 +18,7 @@ export class UserHomeComponent implements OnInit {
     this.service.getAccountBalance(Number(sessionStorage.getItem("primaryAccountNumber"))).subscribe(
       response => {
         this.primaryAccountBalance = response;
+        sessionStorage.setItem("primaryAccountBalance",this.primaryAccountBalance)
       },
       error =>{
         console.log(error);
@@ -26,6 +27,7 @@ export class UserHomeComponent implements OnInit {
     this.service.getAccountBalance(Number(sessionStorage.getItem("savingAccountNumber"))).subscribe(
       response => {
         this.savingAccountBalance = response;
+        sessionStorage.setItem("savingAccountBalance",this.savingAccountBalance)
       },
       error =>{
         console.log(error);
@@ -39,7 +41,7 @@ export class UserHomeComponent implements OnInit {
 
   }
   handleWithdraw(account){
-    this.router.navigate(["user","withdrawFund",{state:{data:account}}]);
+    this.router.navigate(["user","withdrawFund"]);
 
   }
   handleAccount(account){
