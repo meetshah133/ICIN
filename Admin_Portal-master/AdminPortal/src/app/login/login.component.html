@@ -12,7 +12,9 @@
          <input type="checkbox" name="remember-me" id="remember-me" />&nbsp;<span class="clean-font">Remember me</span>
       </label>
       </div>
-      <button class="btn btn-success center-block btn-lg" type="submit">Login</button>   
+      <button class="btn btn-success center-block btn-lg" type="submit">Login</button> 
+      <br>
+        <label style="color: black;" *ngIf="invalidCred">Invalid credentials.</label>
     </form>
     <div [hidden]="!loggedIn">
       <h2>Welcome to Admin Portal!</h2>
