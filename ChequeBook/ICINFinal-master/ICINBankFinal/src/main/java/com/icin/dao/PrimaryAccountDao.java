@@ -6,6 +6,6 @@ import com.icin.model.PrimaryAccount;
 
 public interface PrimaryAccountDao extends CrudRepository<PrimaryAccount,Long> {
 
-    PrimaryAccount findByAccountNumber (int accountNumber);
+    PrimaryAccount findByAccountNumber (long accountNumber);
 
 }

@@ -63,9 +63,9 @@ public class TransactionServiceImplementation implements TransactionService{
     }
 
 	@Override
-	public int retreiveAccountNumber(Long id) {
+	public long retreiveAccountNumber(Long id) {
 		Optional<PrimaryAccount> account =  primaryAccountDao.findById(id);
-		int accNo = account.get().getAccountNumber();
+		long accNo = account.get().getAccountNumber();
 		return accNo;
 	}
 	

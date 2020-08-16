@@ -53,7 +53,7 @@ export class UserServicesService {
         // 'Access-Control-Allow-Credentials' : true
       });
 
-    return this.http.get(`http://localhost:8090/deposits/${depositObj["accType"]}/${depositObj["accNo"]}/${100}`);
+    return this.http.post(`http://localhost:8090/deposit?accType=${depositObj["accType"]}&accNo=${depositObj["accNo"]}&amount=${100}}`,null);
   }
 
   requestChequeBook(chequeObj:ChequeBook,userObj:User){
@@ -67,5 +67,10 @@ export class UserServicesService {
   withdrawMoney(){
 
 //    this.http.post("http://localhost:8090//withdraw",)
+  }
+
+  getTransactions(accountId){
+    console.log(accountId);
+    return this.http.get(`http://localhost:8090//accounts/${accountId}/transactions`)
   }
 }

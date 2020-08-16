@@ -66,7 +66,8 @@ export class TransferFundsComponent implements OnInit {
       console.log("Invalid")
     }
     else{
-      let newTransaction = new Transaction("Fund Transfer",
+      let description = this.transferFundForm.get("optionalMessage").value?this.transferFundForm.get("optionalMessage").value:"Fund Transfer"
+      let newTransaction = new Transaction(description,
       Number(this.transferFundForm.get("amountToBeTransfered").value),
       Number(sessionStorage.getItem("primaryAccountNumber")),
       Number(this.transferFundForm.get("beneficiaryAccountNumber").value),"ICN0001");

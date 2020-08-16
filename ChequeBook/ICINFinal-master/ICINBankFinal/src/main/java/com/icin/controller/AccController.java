@@ -31,7 +31,6 @@ import com.icin.service.TransactionService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-
 public class AccController {
 	
 	@Autowired
@@ -50,7 +49,7 @@ public class AccController {
 		//System.out.println(accType.getClass());
 		if(accType.equals("Primary")) {
 			System.out.println(accType);
-			primaryAccountService.deposit(Integer.parseInt(accNo) , Long.parseLong(amount));
+			primaryAccountService.deposit(Long.parseLong(accNo) , Long.parseLong(amount));
 			PrimaryAccount primaryAcc = primaryAccountService.getAccount(Integer.parseInt(accNo));
 			return primaryAcc;
 		}	
@@ -114,7 +113,7 @@ public class AccController {
      */
     @GetMapping(path = "/accounts/{accountId}/balance")
     @CrossOrigin(origins = "http://localhost:4200")
-    public Long retrieveAccountBalance(@PathVariable int accountId) {
+    public Long retrieveAccountBalance(@PathVariable long accountId) {
         PrimaryAccount account = primaryAccountDao.findByAccountNumber(accountId);
 //        if (!account.isPresent()) {
 //            throw new AccountNotFoundException(
@@ -128,9 +127,10 @@ public class AccController {
      * @param accountId - Unique account ID
      * @return List of transactions for a given bank account
      */
-    @GetMapping(path = "/accounts/{accountId}/transactions")
+    @GetMapping(path = "/accounts/{accountNumber}/transactions")
     @CrossOrigin(origins = "http://localhost:4200")
-    public List<Transaction> retrieveAccountTransactions(@PathVariable int accountId) {
+    public List<Transaction> retrieveAccountTransactions(@PathVariable String accountNumber) {
+    	long accountId = Long.parseLong(accountNumber);
         PrimaryAccount account = primaryAccountDao.findByAccountNumber(accountId);
 		/*
 		 * if (!account.isPresent()) { throw new AccountNotFoundException(

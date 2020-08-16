@@ -12,7 +12,7 @@ public class PersonalTransaction {
 	@Id
 	@GeneratedValue
 	private int transactionId;
-	private int accNo;
+	private long accNo;
 	private Date date;
 	private Long prevBalance;
 	private Long newBalance;
@@ -20,7 +20,7 @@ public class PersonalTransaction {
 	private String accType;
 	
 	
-	public PersonalTransaction(int accNo, Date date, Long prevBalance, Long newBalance, String transactionType,
+	public PersonalTransaction(long accNo, Date date, Long prevBalance, Long newBalance, String transactionType,
 			String accType) {
 		super();
 		this.accNo = accNo;
@@ -60,7 +60,7 @@ public class PersonalTransaction {
 	public void setTransactionType(String transactionType) {
 		this.transactionType = transactionType;
 	}
-	public int getAccNo() {
+	public long getAccNo() {
 		return accNo;
 	}
 	public void setAccNo(int accNo) {

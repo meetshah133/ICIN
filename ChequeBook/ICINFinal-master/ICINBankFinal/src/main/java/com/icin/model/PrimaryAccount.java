@@ -20,15 +20,15 @@ public class PrimaryAccount {
 	@Id
     @GeneratedValue
     private Long id;
-    private int accountNumber;
+    private Long accountNumber;
     private Long accountBalance;
     
 
-    public int getAccountNumber() {
+    public long getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(long accountNumber) {
         this.accountNumber = accountNumber;
     }
 

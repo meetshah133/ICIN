@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServicesService } from '../service/user-services.service';
+import { Transaction } from '../transfer-funds/transfer-funds.component';
 
 @Component({
   selector: 'app-primary-account',
@@ -7,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrimaryAccountComponent implements OnInit {
 
-  constructor() { }
-  acocuntNumber = "515615661651165";
-  balance=1000;
+  constructor(private service:UserServicesService) { }
+  acocuntNumber = sessionStorage.getItem("primaryAccountNumber");
+  balance=sessionStorage.getItem("primaryAccountBalance");
+  transactions
   ngOnInit(): void {
+        this.getUserTransactions();      
+    
+  }
+  getUserTransactions(){
+    this.service.getTransactions(sessionStorage.getItem("primaryAccountNumber")).subscribe(
+      response =>{
+        this.transactions = response;
+        console.log(this.transactions);
+      },
+      error => console.log(error)
+      )
+    
   }
 
 }
