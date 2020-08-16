@@ -31,13 +31,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(path="/hello", method = RequestMethod.GET)
-	@CrossOrigin(origins = "http://localhost:4200")
-	public String testMessage()
-	{
-		return "Hello World";
-	}
-
+	
 	
 	@RequestMapping(path="/register", method = RequestMethod.POST)
 	@CrossOrigin(origins = "http://localhost:4200")

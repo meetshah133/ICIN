@@ -15,7 +15,7 @@ export class DepositFundsComponent implements OnInit {
 
  
   constructor(private route:Router,private formBuilder:FormBuilder,private service:UserServicesService) { }
-  account:String=history.state.data;
+  account:String;
   balanceFund:number;
   depositFundForm: FormGroup;
   submitted:boolean = false;
@@ -59,12 +59,18 @@ export class DepositFundsComponent implements OnInit {
       console.log("Invalid")
     }
     else{
-     this.service.depositMoney("Primary",sessionStorage.getItem("primaryAccountNumber"),this.depositFundForm.get("amountToBeDeposited").value).subscribe(  
-     response => console.log(response),
-        error => console.log(error)
-      )
-    }
+    
+    let obj = new Deposit("Primary",sessionStorage.getItem("primaryAccountNumber"),this.depositFundForm.get("amountToBeDeposited").value);
+    this.service.depositMoney(obj).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
+}
 
   public onChange(event): void {  // event will give you full breif of action
     const newVal = event.target.value;

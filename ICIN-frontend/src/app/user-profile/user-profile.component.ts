@@ -21,10 +21,10 @@ export class UserProfileComponent implements OnInit {
   email = sessionStorage.getItem("mailid");
   address = sessionStorage.getItem("address");
   ngOnInit(): void {
-    this.savingAccountNumber = "123478151616161";
-    this.savingAccountBalance = 1000;
-    this.primaryAccountBalance = 500;
-    this.primaryAccountNumber = "94841515616166";
+    this.savingAccountNumber = sessionStorage.getItem("savingAccountNumber");
+    this.savingAccountBalance = sessionStorage.getItem("savingAccountBalance");
+    this.primaryAccountBalance = sessionStorage.getItem("primaryAccountBalance");
+    this.primaryAccountNumber = sessionStorage.getItem("primaryAccountNumber");
   }
 
 }

@@ -22,7 +22,7 @@ public class CheckbookController{
 	ChequeBookService service;
 
 	@PostMapping("/createcheque")
-    @CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public ChequeBook createChequeBook(@RequestBody ChequeBook chequebook) {
 		System.out.println(chequebook);
 		User user = chequebook.getUser();

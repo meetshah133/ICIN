@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpParams} from '@angular/common/http';
+import { HttpClient,HttpParams,HttpHeaders} from '@angular/common/http';
 
 import { User } from '../registration/subComponents/user-registration/user-registration.component';
 import {Transaction} from '../transfer-funds/transfer-funds.component';
@@ -12,8 +12,10 @@ import { ChequeBook } from '../chequebook-request/chequebook-request.component';
 export class UserServicesService {
 
   constructor(private http:HttpClient) { }
+  
 
   addUSerToDb(){
+    
     console.log("Calling backend end point");
     //this.http.post("http://localhost:8090/register",user);
     //return this.http.get("http://localhost:8090/hello",{responseType: 'text'})
@@ -43,12 +45,15 @@ export class UserServicesService {
     return this.http.get(`http://localhost:8090//accounts/${accountId}/balance`)
   }
 
-  depositMoney(accType,accNo,amount){
-    let params = new HttpParams();
-    params.append("accType",accType);
-    params.append("accNo",accNo);
-    params.append("amount",amount);
-    return this.http.post("http://localhost:8090//deposits",params);
+  depositMoney(depositObj: Deposit){
+  
+    let headers = new HttpHeaders(
+      {
+        'Content-Type': 'application/x-www-form-urlencoded'
+        // 'Access-Control-Allow-Credentials' : true
+      });
+
+    return this.http.get(`http://localhost:8090/deposits/${depositObj["accType"]}/${depositObj["accNo"]}/${100}`);
   }
 
   requestChequeBook(chequeObj:ChequeBook,userObj:User){
@@ -57,5 +62,10 @@ export class UserServicesService {
       "user":userObj
     }
     return this.http.post("http://localhost:8090//createcheque",chequeObj);
+  }
+
+  withdrawMoney(){
+
+//    this.http.post("http://localhost:8090//withdraw",)
   }
 }

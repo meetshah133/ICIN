@@ -4,6 +4,8 @@ package com.icin.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.icin.model.AccountSnapshotContainer;
+import com.icin.model.Deposit;
 import com.icin.model.Transaction;
 import com.icin.dao.PrimaryAccountDao;
 import com.icin.exceptions.AccountNotFoundException;
@@ -27,9 +31,8 @@ import com.icin.service.PrimaryAccountService;
 import com.icin.service.SavingsAccountService;
 import com.icin.service.TransactionService;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-
+@CrossOrigin(origins = "http://localhost:4200")
 public class AccController {
 	
 	@Autowired
@@ -41,20 +44,25 @@ public class AccController {
 	@Autowired
 	private PrimaryAccountDao primaryAccountDao;
 	
-	@PostMapping("/deposit" )
+	
+	
+	@GetMapping("/deposit/{accType}/{accNo}/{amount}")
 	@CrossOrigin(origins = "http://localhost:4200")
-    public Object deposit(@RequestParam String accType, @RequestParam String accNo, @RequestParam String amount) {
+    public Object deposit(@PathVariable String var1, @PathVariable String var2, @PathVariable String var3 ) {
 		//System.out.println(accNo);
 		//System.out.println(accType.getClass());
+		String accType = var1;
+		String accNo = var2;
+		long amount = Long.parseLong(var3);
 		if(accType.equals("Primary")) {
 			System.out.println(accType);
-			primaryAccountService.deposit(Integer.parseInt(accNo) , Long.parseLong(amount));
+			primaryAccountService.deposit(Integer.parseInt(accNo) , amount);
 			PrimaryAccount primaryAcc = primaryAccountService.getAccount(Integer.parseInt(accNo));
 			return primaryAcc;
 		}	
 		else {
 			System.out.println(accType);
-			savingsAccountService.deposit(Integer.parseInt(accNo) , Long.parseLong(amount));
+			savingsAccountService.deposit(Integer.parseInt(accNo) ,amount);
 			SavingsAccount savingsAcc = savingsAccountService.getAccount(Integer.parseInt(accNo));
 			return savingsAcc;
 		}

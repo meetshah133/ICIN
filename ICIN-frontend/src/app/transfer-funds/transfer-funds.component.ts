@@ -30,7 +30,7 @@ export class TransferFundsComponent implements OnInit {
 
   constructor(private route:Router,private formBuilder:FormBuilder,private service:UserServicesService) { }
   account:String=history.state.data;
-  balanceFund = this.getBalance(this.account)
+  balanceFund:number
   transferFundForm: FormGroup;
   submitted:boolean = false;
   ngOnInit(): void {
@@ -44,19 +44,20 @@ export class TransferFundsComponent implements OnInit {
       transferType : ["IMPS"],
       optionalMessage : [""]
     })
-    this.balanceFund = this.getBalance(this.account);
+    this.getBalance();
   }
 
   get f(){
     return this.transferFundForm.controls;
   }
 
-  getBalance(account){
-    if(account==="Primary Account"){
-      return "1000";
-    }
-    else
-      return "500";
+  getBalance( ){
+   
+     (this.service.getAccountBalance(sessionStorage.getItem("primaryAccountNumber"))).subscribe(
+        response => {
+          this.balanceFund = Number(response);
+        }
+     );
   }
 
   handleTransferFund(){
@@ -66,7 +67,9 @@ export class TransferFundsComponent implements OnInit {
     }
     else{
       let newTransaction = new Transaction(new Date(),"Fund Transfer",
-      Number(this.transferFundForm.get("amountToBeTransfered").value),2,3,"ANUP5161");
+      Number(this.transferFundForm.get("amountToBeTransfered").value),
+      Number(sessionStorage.getItem("primaryAccountNumber")),
+      Number(this.transferFundForm.get("beneficiaryAccountNumber").value),"ICN0001");
       this.service.transferFund(newTransaction).subscribe(
         response => alert("Transaction Successfull"),
         error => alert("Transaction failed")
@@ -76,7 +79,7 @@ export class TransferFundsComponent implements OnInit {
 
   public onChange(event): void {  // event will give you full breif of action
     const newVal = event.target.value;
-    this.balanceFund = this.getBalance(newVal);
+   // this.balanceFund = this.getBalance(newVal);
    // console.log(newVal);
   }
 
