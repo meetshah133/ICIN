@@ -20,13 +20,17 @@ export class NavbarComponent implements OnInit {
 	}
 
 	logout(){
-		this.loginService.logout().subscribe(
-			res => {
-				localStorage.setItem('PortalAdminHasLoggedIn', '');
-			},
-			err => console.log(err)
-			);
-		location.reload();
+		//this.loginService.logout().subscribe(
+			//res => {
+				//this.loggedIn=false;
+			    //localStorage.setItem('PortalAdminHasLoggedIn', '');
+				//localStorage.removeItem('PortalAdminHasLoggedIn');
+			//},
+			//err => console.log(err)
+			//);
+		this.loggedIn=false;
+		localStorage.setItem('PortalAdminHasLoggedIn', '');
+		//location.reload();
 		this.router.navigate(['/login']);
 	}
 
