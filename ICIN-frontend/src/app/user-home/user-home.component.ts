@@ -41,7 +41,7 @@ export class UserHomeComponent implements OnInit {
 
   }
   handleWithdraw(account){
-    this.router.navigate(["user","withdrawFund",{state:{data:account}}]);
+    this.router.navigate(["user","withdrawFund"]);
 
   }
   handleAccount(account){

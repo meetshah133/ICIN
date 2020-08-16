@@ -66,9 +66,9 @@ public class AccController {
 			
     }
 	
-	@PostMapping("/withdraw" )
+	@GetMapping("/withdraw/{accType}/{accNo}/{amount}" )
 	@CrossOrigin(origins = "http://localhost:4200")
-    public Object withdraw(@RequestParam String accType, @RequestParam String accNo, @RequestParam String amount) {
+    public Object withdraw(@PathVariable String accType, @PathVariable String accNo, @PathVariable String amount) {
 		//System.out.println(accNo);
 		//System.out.println(accType.getClass());
 		if(accType.equals("Primary")) {

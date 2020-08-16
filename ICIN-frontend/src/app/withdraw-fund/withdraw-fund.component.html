@@ -15,8 +15,8 @@
         <label for="amountToBeDeposited">Amount to be withdrawn</label>
         <input type="number" class="form-control"  id="amountToBeDeposited" formControlName="amountToBeDeposited" 
         [ngClass]="{'is-invalid':submitted && f.amountToBeDeposited.errors}">
-        <div *ngIf="f.amountToBeTransfered.errors" class="invalid-feedback">
-            <div *ngIf="f.amountToBeTransfered.errors.required">
+        <div *ngIf="f.amountToBeDeposited.errors" class="invalid-feedback">
+            <div *ngIf="f.amountToBeDeposited.errors.required">
                 <p class="alert alert-warning mt-2">Amount is required</p>
             </div>
         </div>

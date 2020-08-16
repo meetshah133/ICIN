@@ -70,7 +70,7 @@ export class DepositFundsComponent implements OnInit {
       }
     )
     }
-    else;{
+    else{
       this.service.depositMoney("Savings",Number(sessionStorage.getItem("savingAccountNumber")),Number(this.depositFundForm.get("amountToBeDeposited").value)).subscribe(
         response =>{ 
           console.log(response)

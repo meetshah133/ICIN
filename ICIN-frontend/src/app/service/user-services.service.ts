@@ -60,9 +60,8 @@ export class UserServicesService {
     return this.http.post("http://localhost:8090//createcheque",chequeObj);
   }
 
-  withdrawMoney(){
-
-//    this.http.post("http://localhost:8090//withdraw",)
+  withdrawMoney(accType:String, accNo:number, amount:number){
+    return this.http.get(`http://localhost:8090/withdraw/${accType}/${accNo}/${amount}`);
   }
 
   getTransactions(accountId){
