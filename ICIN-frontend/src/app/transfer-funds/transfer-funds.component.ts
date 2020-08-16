@@ -5,15 +5,15 @@ import { UserServicesService } from '../service/user-services.service';
 
 export class Transaction{
   constructor(
-  private  creationDate:Date,
+
 
   private  description:string,
 
   private  transactionAmount:number,
 
-  private  sourceAccountId:number,
+  private  sourceAccountnumber:number,
 
-  private  destinationAccountId:number,
+  private  destinationAccountnumber:number,
   
   private  IFSC:string,
   ){
@@ -66,10 +66,11 @@ export class TransferFundsComponent implements OnInit {
       console.log("Invalid")
     }
     else{
-      let newTransaction = new Transaction(new Date(),"Fund Transfer",
+      let newTransaction = new Transaction("Fund Transfer",
       Number(this.transferFundForm.get("amountToBeTransfered").value),
       Number(sessionStorage.getItem("primaryAccountNumber")),
       Number(this.transferFundForm.get("beneficiaryAccountNumber").value),"ICN0001");
+      console.log(newTransaction);
       this.service.transferFund(newTransaction).subscribe(
         response => alert("Transaction Successfull"),
         error => alert("Transaction failed")
