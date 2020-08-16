@@ -1,0 +1,33 @@
+        <div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<span class="fa fa-user"></span>
+					</span>                    
+				</div>
+				<input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" required="required" [(ngModel)]="firstName" >
+			</div>
+			<p class="alert alert-warning mt-2" *ngIf="invalidFirstName">First Name is required</p>
+        </div>
+        
+        <div class="form-group">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<span class="fa fa-user"></span>
+					</span>                    
+				</div>
+				<input type="text" class="form-control" name="lastName" placeholder="Last Name" required="required" [(ngModel)]="lastName">
+			</div>
+			<p class="alert alert-warning mt-2" *ngIf="invalidLasttName">Last Name is required</p>
+        </div>
+
+          
+		
+			<button type="button" class="btn btn-primary btn-md m-4 float-right d-block" id="next" (click)="handlePersonalDetailsValidation()"
+			>Next</button>
+        
+       
+        <div class="form-group">
+			<label class="form-check-label"></label>
+		</div>

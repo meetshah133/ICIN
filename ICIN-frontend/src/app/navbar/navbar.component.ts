@@ -37,4 +37,19 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(["user","profile"]);
   }
 
+  handleHome(){
+    if(this.service.isUserLogin()){
+      this.router.navigate(["user","home"]);
+    }
+    else{
+      this.router.navigate(["login"]);
+    }
+  }
+  handleAccount(account){
+    if(account==="Primary")
+        this.router.navigate(["user","primaryAccount"])
+    else
+      this.router.navigate(["user","savingAccount"])
+  }
+
 }

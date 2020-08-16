@@ -18,6 +18,10 @@ import { ChequebookRequestComponent } from './chequebook-request/chequebook-requ
 import { TransferFundsComponent } from './transfer-funds/transfer-funds.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {HttpClientModule}  from '@angular/common/http';
+import { DepositFundsComponent } from './deposit-funds/deposit-funds.component';
+import { WithdrawFundComponent } from './withdraw-fund/withdraw-fund.component';
+import { PrimaryAccountComponent } from './primary-account/primary-account.component';
+import { SavingAccountComponent } from './saving-account/saving-account.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import {HttpClientModule}  from '@angular/common/http';
     UserHomeComponent,
     ChequebookRequestComponent,
     TransferFundsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    DepositFundsComponent,
+    WithdrawFundComponent,
+    PrimaryAccountComponent,
+    SavingAccountComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../registration/subComponents/user-registration/user-registration.component';
+import {Transaction} from '../transfer-funds/transfer-funds.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,13 @@ export class UserServicesService {
     //this.http.post("http://localhost:8090/register",user);
     //return this.http.get("http://localhost:8090/hello",{responseType: 'text'})
     return this.http.post("http://localhost:8090/register",
-    new User(sessionStorage.getItem("firstName"),sessionStorage.getItem("lastName"),sessionStorage.getItem("mailid"),Number(sessionStorage.getItem("phonenumber")),sessionStorage.getItem("address"),sessionStorage.getItem("password")));
+    new User(sessionStorage.getItem("firstName"),sessionStorage.getItem("lastName"),sessionStorage.getItem("mailid"),Number(sessionStorage.getItem("phonenumber")),sessionStorage.getItem("address"),sessionStorage.getItem("password"),null,null));
     
   }
 
-  authenticateUser(){
+  authenticateUser(user:User){
       console.log("Verifying user");
-      return this.http.post("http://localhost:8090/login",
-      new User("","",sessionStorage.getItem("mailid"),null,"",sessionStorage.getItem("password")));
+      return this.http.post("http://localhost:8090/login",user);
   }
   isUserLogin(){
     let user = sessionStorage.getItem("isAuthenticatedUser");
@@ -30,5 +30,9 @@ export class UserServicesService {
 
   getUserName(){
     return (sessionStorage.getItem("isAuthenticatedUser"));
+  }
+
+  transferFund(obj:Transaction){
+    return this.http.post("http://localhost:8090/transfer",obj);
   }
 }

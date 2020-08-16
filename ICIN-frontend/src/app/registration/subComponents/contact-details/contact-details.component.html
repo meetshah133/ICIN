@@ -29,7 +29,7 @@
             </span>                    
         </div>
         
-        <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': f.phone.errors }"  />
+        <input type="text" formControlName="phone" name="phone" class="form-control" [ngClass]="{ 'is-invalid': f.phone.errors }"  />
                         <div *ngIf="f.phone.errors" class="invalid-feedback">
                             <div *ngIf="f.phone.errors.required"><p class="alert alert-warning mt-2" >Mobile number is required </p></div>
                             <div *ngIf="f.phone.errors.minlength"> <p class="alert alert-warning mt-2" > Mobile number must be of 10 characters </p></div>

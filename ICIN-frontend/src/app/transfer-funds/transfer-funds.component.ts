@@ -1,6 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {FormBuilder,FormControl,FormGroup,Validators}  from '@angular/forms';
+import { UserServicesService } from '../service/user-services.service';
+
+export class Transaction{
+  constructor(
+  private  creationDate:Date,
+
+  private  description:string,
+
+  private  transactionAmount:number,
+
+  private  sourceAccountId:number,
+
+  private  destinationAccountId:number,
+  
+  private  IFSC:string,
+  ){
+
+  }
+}
+
 @Component({
   selector: 'app-transfer-funds',
   templateUrl: './transfer-funds.component.html',
@@ -8,19 +28,20 @@ import {FormBuilder,FormControl,FormGroup,Validators}  from '@angular/forms';
 })
 export class TransferFundsComponent implements OnInit {
 
-  constructor(private route:Router,private formBuilder:FormBuilder) { }
+  constructor(private route:Router,private formBuilder:FormBuilder,private service:UserServicesService) { }
   account:String=history.state.data;
   balanceFund = this.getBalance(this.account)
   transferFundForm: FormGroup;
   submitted:boolean = false;
   ngOnInit(): void {
     this.transferFundForm = this.formBuilder.group({
-      accountType: [this.account],
+      accountType: ["Primary Account"],
       balance : [this.balanceFund],
       beneficiaryName : ["",Validators.required],
       beneficiaryAccountNumber : ["",Validators.required],
       beneficiaryIFSCCode : ["",Validators.required],
       amountToBeTransfered : ["",[Validators.required]],
+      transferType : ["IMPS"],
       optionalMessage : [""]
     })
     this.balanceFund = this.getBalance(this.account);
@@ -44,8 +65,13 @@ export class TransferFundsComponent implements OnInit {
       console.log("Invalid")
     }
     else{
-      console.log("Valid form");
-    }
+      let newTransaction = new Transaction(new Date(),"Fund Transfer",
+      Number(this.transferFundForm.get("amountToBeTransfered").value),2,3,"ANUP5161");
+      this.service.transferFund(newTransaction).subscribe(
+        response => alert("Transaction Successfull"),
+        error => alert("Transaction failed")
+      );
+    } 
   }
 
   public onChange(event): void {  // event will give you full breif of action

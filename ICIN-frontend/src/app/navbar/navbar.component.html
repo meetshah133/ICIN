@@ -1,6 +1,6 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" (click)="handleHome()">
         <i class="fa fa-university" aria-hidden="true"></i>
         ICIN
       </a>
@@ -21,18 +21,15 @@
             Accounts
           </a>
           <div class="dropdown-menu bg-light " aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Primary</a>
-            <a class="dropdown-item" href="#">Saving</a>
+            <a class="dropdown-item" (click)="handleAccount('Primary')">Primary</a>
+            <a class="dropdown-item" (click)="handleAccount('Saving')">Saving</a>
           </div>
         </li>
-        <li class="nav-item dropdown" *ngIf="service.isUserLogin()">
-          <a class="nav-link dropdown-toggle ml-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item " *ngIf="service.isUserLogin()"  (click)="handleTransferFundRequest('Primary Account')" >
+          <a class="nav-link  ml-2" (click)="handleTransferFundRequest('Primary Account')" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Transfer
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="handleTransferFundRequest('Primary Account')">From Primary Account</a>
-            <a class="dropdown-item" (click)="handleTransferFundRequest('Saving Account')">From Saving Account</a>
-          </div>
+        
         </li>
         <li class="nav-item dropdown" *ngIf="service.isUserLogin()">
           <a class="nav-link dropdown-toggle ml-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

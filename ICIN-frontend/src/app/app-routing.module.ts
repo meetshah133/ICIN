@@ -11,6 +11,11 @@ import {UserHomeComponent} from "./user-home/user-home.component"
 import { ChequebookRequestComponent } from './chequebook-request/chequebook-request.component';
 import { TransferFundsComponent } from './transfer-funds/transfer-funds.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DepositFundsComponent } from './deposit-funds/deposit-funds.component';
+import { WithdrawFundComponent } from './withdraw-fund/withdraw-fund.component';
+import {RouteGuardService} from './service/route-guard.service'
+import { PrimaryAccountComponent } from './primary-account/primary-account.component';
+import { SavingAccountComponent } from './saving-account/saving-account.component';
 
 const routes: Routes = [
   {path:"register/contactDetails",component:ContactDetailsComponent},
@@ -20,10 +25,14 @@ const routes: Routes = [
   {path:"register/userRegistration",component:UserRegistrationComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegistrationComponent },
-  {path:"user/home",component:UserHomeComponent},
-  {path:"user/chequeBookRequest",component:ChequebookRequestComponent},
-  {path:"user/transferFundRequest",component:TransferFundsComponent},
-  {path:"user/profile",component:UserProfileComponent},
+  {path:"user/home",component:UserHomeComponent,canActivate:[RouteGuardService]},
+  {path:"user/chequeBookRequest",component:ChequebookRequestComponent,canActivate:[RouteGuardService]},
+  {path:"user/transferFundRequest",component:TransferFundsComponent,canActivate:[RouteGuardService]},
+  {path:"user/profile",component:UserProfileComponent,canActivate:[RouteGuardService]},
+  {path:"user/depositFund",component:DepositFundsComponent,canActivate:[RouteGuardService]},
+  {path:"user/withdrawFund",component:WithdrawFundComponent,canActivate:[RouteGuardService]},
+  {path:"user/primaryAccount",component:PrimaryAccountComponent,canActivate:[RouteGuardService]},
+  {path:"user/savingAccount",component:SavingAccountComponent,canActivate:[RouteGuardService]},
   {path:"",component:LoginComponent},
 
 ];

@@ -1,0 +1,28 @@
+<div class="jumbotron bg-light text-dark p-10">
+    <form [formGroup]="withdrawFundForm"> 
+    <div class="form-group">
+      <label for="accountType">Please select your account type</label>
+      <select class="form-control" id="accountType" name="accountType" formControlName="accountType" (change)="onChange($event)">
+        <option>Primary Account</option>
+        <option>Saving Account</option>
+      </select>
+    </div>
+    <div class="form-group">
+        <label for="accountBalance">Balance</label>
+        <input type="text" class="form-control" readonly id="accountBalance" placeholder formControlName="balance" value="{{balanceFund}}">
+    </div>
+      <div class="form-group">
+        <label for="amountToBeDeposited">Amount to be withdrawn</label>
+        <input type="number" class="form-control"  id="amountToBeDeposited" formControlName="amountToBeDeposited" 
+        [ngClass]="{'is-invalid':submitted && f.amountToBeDeposited.errors}">
+        <div *ngIf="f.amountToBeTransfered.errors" class="invalid-feedback">
+            <div *ngIf="f.amountToBeTransfered.errors.required">
+                <p class="alert alert-warning mt-2">Amount is required</p>
+            </div>
+        </div>
+      </div>
+    
+    <button type="button" class="btn btn-primary" (click)="handleTransferFund()">Withdraw Money</button>
+  </form>
+</div>
+

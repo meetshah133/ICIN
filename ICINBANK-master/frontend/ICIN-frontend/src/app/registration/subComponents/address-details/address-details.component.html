@@ -1,0 +1,83 @@
+<div class="signup-form">
+    <form >
+		<h2>Sign Up</h2>
+		<p>Please fill in this form to create an account!</p>
+        <hr>
+        <router-outlet>
+
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-building"></i>
+                        </span>                    
+                    </div>
+                    <input type="text" class="form-control" name="addressLine1" id="addressLine1" placeholder="House Number - Building Name" required="required" [(ngModel)]="addressLine1">
+                </div>
+                <p class="alert alert-warning mt-2" *ngIf="invalidAddressLine1">House Number and building name is required</p>
+
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-road" aria-hidden="true"></i>
+                        </span>                    
+                    </div>
+                    <input type="text" class="form-control" name="addressLine2" id="addressLine2" placeholder="Street Name or Locality" required="required" [(ngModel)]="addressLine2">
+                </div>
+                <p class="alert alert-warning mt-2" *ngIf="invalidAddressLine2">Street Name or Locality is required</p>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-location-arrow"></i>
+                        </span>                    
+                    </div>
+                    <input type="text" class="form-control" name="addressLine3" id="addressLine3" placeholder="Town or Village Name" required="required" [(ngModel)]="addressLine3">
+                </div>
+                <p class="alert alert-warning mt-2" *ngIf="invalidAddressLine3">Town or village name is rquired</p>
+
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-globe"></i>
+                        </span>                    
+                    </div>
+                    <input type="text" class="form-control" name="addressLine4" id="addressLine4" placeholder="City and State Name" required="required" [(ngModel)]="addressLine4">
+                </div>
+                <p class="alert alert-warning mt-2" *ngIf="invalidAddressLine4">City or state name is rquired</p>
+
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                        
+                            <i class="fa fa-map-marker"></i>
+                        </span>                    
+                    </div>
+                    <input type="number" class="form-control" name="addressLine5" id="addressLine5" placeholder=Pincode required="required" [(ngModel)]="addressLine5">
+                </div>
+                <p class="alert alert-warning mt-2" *ngIf="invalidAddressLine5">Pincode is rquired</p>
+
+            </div>
+
+            
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-md m-4 float-right d-block" id="next" (click)="validateAddress()">Next</button>
+            </div>
+
+            <div class="form-group">
+                <label class="form-check-label"></label>
+            </div>
+            </router-outlet>
+            </form>
+            <div class="text-center ">Already have an account? <a href="#" class="text-white" routerLink="/login">Login here</a></div>
+
+
+
