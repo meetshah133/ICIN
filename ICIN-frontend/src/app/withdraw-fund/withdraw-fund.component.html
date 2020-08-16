@@ -13,7 +13,7 @@
     </div>
       <div class="form-group">
         <label for="amountToBeDeposited">Amount to be withdrawn</label>
-        <input type="number" class="form-control"  id="amountToBeDeposited" formControlName="amountToBeDeposited" 
+        <input type="number" class="form-control"  id="amountToWithdrawn" formControlName="amountToBeDeposited" 
         [ngClass]="{'is-invalid':submitted && f.amountToBeDeposited.errors}">
         <div *ngIf="f.amountToBeDeposited.errors" class="invalid-feedback">
             <div *ngIf="f.amountToBeDeposited.errors.required">
@@ -22,7 +22,7 @@
         </div>
       </div>
     
-    <button type="button" class="btn btn-primary" (click)="handleTransferFund()">Withdraw Money</button>
+    <button type="button" class="btn btn-primary" (click)="handleTransferFund()" id="withdrawMoneyButton">Withdraw Money</button>
   </form>
 </div>
 

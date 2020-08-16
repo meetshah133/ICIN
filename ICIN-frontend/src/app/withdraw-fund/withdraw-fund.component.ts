@@ -69,9 +69,13 @@ export class WithdrawFundComponent implements OnInit {
     else{
       this.service.withdrawMoney("Savings",Number(sessionStorage.getItem("savingAccountNumber")),Number(this.withdrawFundForm.get("amountToBeDeposited").value)).subscribe(
         response =>{ 
+          let updatedBalance 
           console.log(response)
-          let updatedBalance = Number(this.withdrawFundForm.get("amountToBeDeposited").value) - Number(sessionStorage.getItem("savingAccountBalance"))
+          if(this.withdrawFundForm.get("amountToBeDeposited").value>Number(sessionStorage.getItem("savingAccountBalance")))
+          {
+          updatedBalance = Number(this.withdrawFundForm.get("amountToBeDeposited").value) - Number(sessionStorage.getItem("savingAccountBalance"))
           sessionStorage.setItem("savingAccountBalance",String(updatedBalance));
+          }
           alert("Money Withdrawn successfully!!")
           this.route.navigate(["user","home"]);
           },

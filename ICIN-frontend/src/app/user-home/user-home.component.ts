@@ -49,5 +49,12 @@ export class UserHomeComponent implements OnInit {
       this.router.navigate(["user","primaryAccount"]);
     }
   }
+  handlePrimaryAccount(){
+    this.router.navigate(["user","primaryAccount"])
+  }
+
+  handleSavingAccount(){
+    this.router.navigate(["user","savingAccount"])
+  }
 
 }

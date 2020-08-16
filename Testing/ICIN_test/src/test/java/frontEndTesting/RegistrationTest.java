@@ -23,7 +23,7 @@ public class RegistrationTest {
 	}
 	
 	@Test
-	public void registerUser() {
+	public void registerUser() throws InterruptedException {
 		
 		//Personal Details
 		driver.findElement(By.cssSelector("input[name='firstName'")).sendKeys("Meet");
@@ -32,7 +32,7 @@ public class RegistrationTest {
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/register/contactDetails");
 		
 		//Contact Details
-		driver.findElement(By.cssSelector("input[name='email'")).sendKeys("meetshah133@gmail.com");
+		driver.findElement(By.cssSelector("input[name='email'")).sendKeys("test@gmail.com");
 		driver.findElement(By.cssSelector("input[name='phone'")).sendKeys("9699011837");
 		driver.findElement(By.id("next")).click();
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/register/kycDetails");
@@ -59,7 +59,7 @@ public class RegistrationTest {
 		driver.findElement(By.cssSelector("input[name='confirm_password'")).sendKeys("abc@1234");
 		driver.findElement(By.cssSelector("input[name='tnc'")).click();
 		driver.findElement(By.cssSelector("button[id='signUpButton'")).click();
-
+		Thread.sleep(2000L);
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/login");
 		
 

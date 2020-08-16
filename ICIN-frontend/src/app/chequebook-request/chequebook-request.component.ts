@@ -40,7 +40,9 @@ export class ChequebookRequestComponent implements OnInit {
       response =>{ 
         alert("Chequebook request submiited")
         console.log(response
-          )},
+          )
+          this.route.navigate(["user","home"]);
+        },
       error => { 
         alert("Chequebook request failed")
         console.log(error)},

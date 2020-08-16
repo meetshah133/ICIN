@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="frontEndTesting.TransferFundTest">
+      <class name="frontEndTesting.WithdrawFundTest">
         <methods>
+          <include name="withdrawingAmountGreaterThanCurrentAmounForSavingsAccount"/>
           <include name="setUp"/>
-          <include name="transferFund"/>
           <include name="cleanUp"/>
+          <include name="withdrawFundInSavingAccount"/>
         </methods>
-      </class> <!-- frontEndTesting.TransferFundTest -->
+      </class> <!-- frontEndTesting.WithdrawFundTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

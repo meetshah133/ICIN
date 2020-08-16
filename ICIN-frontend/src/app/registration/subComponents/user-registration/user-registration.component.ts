@@ -85,6 +85,7 @@ export class UserRegistrationComponent implements OnInit {
 
     }
   }
+  
   checkPassword(password){
     let letter = /[a-zA-Z]/; 
     let number = /[0-9]/;

@@ -44,7 +44,7 @@ public class TransferFundTest {
 		String text = alert.getText();
 		System.out.println(text);
 		alert.accept();
-		//assertEquals(text, "Transaction Successfull");
+		assertEquals(text, "Transaction Successfull");
 		
 		
 
