@@ -18,6 +18,7 @@ import { SavingsTransactionComponent } from './savings-transaction/savings-trans
 import { ChequeBookRequestComponent } from './chequeBookRequest/chequeBookRequest.component';
 import { ChequeBookRequestService } from './chequeBookRequest.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { ChequeBookRequestService } from './chequeBookRequest.service';
     UserAccountComponent,
     PrimaryTransactionComponent,
     SavingsTransactionComponent,
-    ChequeBookRequestComponent
+    ChequeBookRequestComponent,
   ],
   imports: [
     BrowserModule,
