@@ -21,7 +21,7 @@ export class DepositFundsComponent implements OnInit {
   submitted:boolean = false;
   ngOnInit(): void {
     this.depositFundForm = this.formBuilder.group({
-      accountType: [this.account],
+      accountType: ["Primary Account"],
       balance : [this.balanceFund],
       amountToBeDeposited : ["",Validators.required]
 
@@ -30,12 +30,10 @@ export class DepositFundsComponent implements OnInit {
   }
 
   getBalanceAsPerAccountType(accountType){
-    if(accountType==="Primary Account"){
+    if(accountType==="Primary Account")
       this.getBalance(sessionStorage.getItem("primaryAccountNumber"));
-    }
-    else{
-      this.getBalance(sessionStorage.getItem("savingAccountNumber"));
-    }
+    else
+      this.balanceFund = Number(sessionStorage.getItem("savingAccountBalance"))
   }
 
   get f(){
@@ -59,16 +57,34 @@ export class DepositFundsComponent implements OnInit {
       console.log("Invalid")
     }
     else{
-    
-    let obj = new Deposit("Primary",sessionStorage.getItem("primaryAccountNumber"),this.depositFundForm.get("amountToBeDeposited").value);
-    this.service.depositMoney(obj).subscribe(
-      response => {
-        console.log(response);
-      },
+    if(this.depositFundForm.get("accountType").value === "Primary Account"){
+    this.service.depositMoney("Primary",Number(sessionStorage.getItem("primaryAccountNumber")),Number(this.depositFundForm.get("amountToBeDeposited").value)).subscribe(
+      response =>{ 
+        console.log(response)
+        alert("Money deposited successfully!!")
+        this.route.navigate(["user","home"]);
+        },
       error => {
-        console.log(error);
+        alert("Transaction Failed")
+        console.log(error)
       }
-    );
+    )
+    }
+    else;{
+      this.service.depositMoney("Savings",Number(sessionStorage.getItem("savingAccountNumber")),Number(this.depositFundForm.get("amountToBeDeposited").value)).subscribe(
+        response =>{ 
+          console.log(response)
+          let updatedBalance = Number(this.depositFundForm.get("amountToBeDeposited").value) + Number(sessionStorage.getItem("savingAccountBalance"))
+          sessionStorage.setItem("savingAccountBalance",String(updatedBalance));
+          alert("Money deposited successfully!!")
+          this.route.navigate(["user","home"]);
+          },
+        error => {
+          alert("Transaction Failed")
+          console.log(error)
+        }
+      )
+    }
   }
 }
 

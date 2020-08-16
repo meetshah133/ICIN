@@ -1,7 +1,7 @@
 <div class="jumbotron bg-light text-dark p-10">
     <form [formGroup]="depositFundForm"> 
     <div class="form-group">
-      <label for="accountType">Please select your account type</label>
+      <label for="accountType">Account type</label>
       <select class="form-control" id="accountType" name="accountType" formControlName="accountType" (change)="onChange($event)">
         <option>Primary Account</option>
         <option>Saving Account</option>

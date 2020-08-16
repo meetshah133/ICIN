@@ -45,15 +45,11 @@ export class UserServicesService {
     return this.http.get(`http://localhost:8090//accounts/${accountId}/balance`)
   }
 
-  depositMoney(depositObj: Deposit){
+  depositMoney( accType:String, accNo:number, amount:number){
   
-    let headers = new HttpHeaders(
-      {
-        'Content-Type': 'application/x-www-form-urlencoded'
-        // 'Access-Control-Allow-Credentials' : true
-      });
+  
 
-    return this.http.post(`http://localhost:8090/deposit?accType=${depositObj["accType"]}&accNo=${depositObj["accNo"]}&amount=${100}}`,null);
+    return this.http.get(`http://localhost:8090/deposit/${accType}/${accNo}/${amount}`);
   }
 
   requestChequeBook(chequeObj:ChequeBook,userObj:User){
