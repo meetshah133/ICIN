@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams} from '@angular/common/http';
+
 import { User } from '../registration/subComponents/user-registration/user-registration.component';
 import {Transaction} from '../transfer-funds/transfer-funds.component';
+import { Deposit } from '../deposit-funds/deposit-funds.component';
+import { ChequeBook } from '../chequebook-request/chequebook-request.component';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +37,25 @@ export class UserServicesService {
 
   transferFund(obj:Transaction){
     return this.http.post("http://localhost:8090/transfer",obj);
+  }
+
+  getAccountBalance(accountId){
+    return this.http.get(`http://localhost:8090//accounts/${accountId}/balance`)
+  }
+
+  depositMoney(accType,accNo,amount){
+    let params = new HttpParams();
+    params.append("accType",accType);
+    params.append("accNo",accNo);
+    params.append("amount",amount);
+    return this.http.post("http://localhost:8090//deposits",params);
+  }
+
+  requestChequeBook(chequeObj:ChequeBook,userObj:User){
+    let objs = {
+      "chequebook":chequeObj,
+      "user":userObj
+    }
+    return this.http.post("http://localhost:8090//createcheque",chequeObj);
   }
 }

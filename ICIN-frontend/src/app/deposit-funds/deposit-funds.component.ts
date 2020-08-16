@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserServicesService } from '../service/user-services.service';
 
+export class Deposit {
+  constructor(private accType:String,private accNo:String,private amount){}
+}
 @Component({
   selector: 'app-deposit-funds',
   templateUrl: './deposit-funds.component.html',
@@ -10,9 +14,9 @@ import { Router } from '@angular/router';
 export class DepositFundsComponent implements OnInit {
 
  
-  constructor(private route:Router,private formBuilder:FormBuilder) { }
+  constructor(private route:Router,private formBuilder:FormBuilder,private service:UserServicesService) { }
   account:String=history.state.data;
-  balanceFund = this.getBalance(this.account)
+  balanceFund:number;
   depositFundForm: FormGroup;
   submitted:boolean = false;
   ngOnInit(): void {
@@ -22,7 +26,16 @@ export class DepositFundsComponent implements OnInit {
       amountToBeDeposited : ["",Validators.required]
 
     })
-    this.balanceFund = this.getBalance(this.account);
+    this.getBalanceAsPerAccountType(this.depositFundForm.get("accountType").value);
+  }
+
+  getBalanceAsPerAccountType(accountType){
+    if(accountType==="Primary Account"){
+      this.getBalance(sessionStorage.getItem("primaryAccountNumber"));
+    }
+    else{
+      this.getBalance(sessionStorage.getItem("savingAccountNumber"));
+    }
   }
 
   get f(){
@@ -30,11 +43,14 @@ export class DepositFundsComponent implements OnInit {
   }
 
   getBalance(account){
-    if(account==="Primary Account"){
-      return "1000";
-    }
-    else
-      return "500";
+    this.service.getAccountBalance(Number(account)).subscribe(
+      response => {
+        this.balanceFund = Number(response);
+      },
+      error =>{
+        console.log(error);
+      }
+    )
   }
 
   handleTransferFund(){
@@ -43,13 +59,16 @@ export class DepositFundsComponent implements OnInit {
       console.log("Invalid")
     }
     else{
-      console.log("Valid form");
+     this.service.depositMoney("Primary",sessionStorage.getItem("primaryAccountNumber"),this.depositFundForm.get("amountToBeDeposited").value).subscribe(  
+     response => console.log(response),
+        error => console.log(error)
+      )
     }
   }
 
   public onChange(event): void {  // event will give you full breif of action
     const newVal = event.target.value;
-    this.balanceFund = this.getBalance(newVal);
+    this.getBalanceAsPerAccountType(newVal);
    // console.log(newVal);
   }
 

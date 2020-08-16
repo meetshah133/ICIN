@@ -19,8 +19,8 @@ import com.icin.serviceImpl.RegisterService;
 import com.icin.model.PrimaryAccount;
 import com.icin.model.SavingsAccount;
 
-@CrossOrigin(origins="http://localhost:4200")
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
 public class UserController {
 
 	

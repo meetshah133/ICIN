@@ -27,9 +27,8 @@ import com.icin.service.PrimaryAccountService;
 import com.icin.service.SavingsAccountService;
 import com.icin.service.TransactionService;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-
+@CrossOrigin(origins = "http://localhost:4200")
 public class AccController {
 	
 	@Autowired
@@ -113,6 +112,7 @@ public class AccController {
     @GetMapping(path = "/accounts/{accountId}/balance")
     @CrossOrigin(origins = "http://localhost:4200")
     public Long retrieveAccountBalance(@PathVariable int accountId) {
+    	
         PrimaryAccount account = primaryAccountDao.findByAccountNumber(accountId);
 //        if (!account.isPresent()) {
 //            throw new AccountNotFoundException(
@@ -128,8 +128,8 @@ public class AccController {
      */
     @GetMapping(path = "/accounts/{accountId}/transactions")
     @CrossOrigin(origins = "http://localhost:4200")
-    public List<Transaction> retrieveAccountTransactions(@PathVariable int accountId) {
-        PrimaryAccount account = primaryAccountDao.findByAccountNumber(accountId);
+    public List<Transaction> retrieveSavingsAccountTransactions(@PathVariable int accountId) {
+        SavingsAccount account = savingsAccountDao.findByAccountNumber(accountId);
 		/*
 		 * if (!account.isPresent()) { throw new AccountNotFoundException(
 		 * String.format("Account %s not found.", accountId)); }

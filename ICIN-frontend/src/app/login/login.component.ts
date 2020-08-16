@@ -42,6 +42,11 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("primaryAccountBalance",response["primaryAccount"]["accountBalance"]);
           sessionStorage.setItem("savingAccountNumber",response["savingsAccount"]["accountNumber"]);
           sessionStorage.setItem("savingAccountBalance",response["savingsAccount"]["accountBalance"]);
+          sessionStorage.setItem("accountID",response["id"]);
+          sessionStorage.setItem("userObj",JSON.stringify(response));
+          console.log("Json object is ")
+           let u = JSON.parse(sessionStorage.getItem("userObj"));
+           console.log(u);
           //primaryAccount: {accountNumber: 22113346, accountBalance: 0}
 
           this.router.navigate(["user","home"]);

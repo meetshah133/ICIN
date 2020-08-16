@@ -83,4 +83,16 @@ public class SavingsAccountServiceImpl implements SavingsAccountService{
 		public SavingsAccount getAccount(int accNo) {
 			return savingsAccountDao.findByAccountNumber(accNo);
 		}
+		
+	    @Override
+	    public Long retrieveAccountBalance(long accountId) {
+	        Optional<SavingsAccount> account = savingsAccountDao.findByAccountNumber(accountId);
+	        if (!account.isPresent()) {
+	            throw new AccountNotFoundException(
+	                  String.format("Account %s not found.", accountId));
+	        }
+	        return account.get().getAccountBalance();
+	    }
+	    
+
 }
