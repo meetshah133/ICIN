@@ -8,28 +8,28 @@ export class UserService {
   constructor (private http:HttpClient){}
 
   getUsers() {
-    let url = "http://localhost:8090/api/user/all";
-    return this.http.get(url, { withCredentials: true });
+    let url = "http://localhost:8090/admin/getallusers";
+    return this.http.get(url);
   }
 
-   getPrimaryTransactionList(username: string) {
-     let url = "http://localhost:8090/api/user/primary/transaction?username="+username;
-    return this.http.get(url, { withCredentials: true });
+   getPrimaryTransactionList(userAcc: any) {
+     let url = "http://localhost:8090/admin/transactions/"+userAcc;
+    return this.http.get(url);
    }
 
-   getSavingsTransactionList(username: string) {
-     let url = "http://localhost:8090/api/user/savings/transaction?username="+username;
-    return this.http.get(url, { withCredentials: true });
+   getSavingsTransactionList(userAcc: any) {
+     let url = "http://localhost:8090/admin/transactions/"+userAcc;
+    return this.http.get(url);
    }
 
    enableUser (username: string) {
-     let url = "http://localhost:8090/api/user/"+username+"/enable";
-     return this.http.get(url, { withCredentials: true });
+     //let url = "http://localhost:8090/api/user/"+username+"/enable";
+     //return this.http.get(url, { withCredentials: true });
    }
 
    disableUser (username: string) {
-     let url = "http://localhost:8090/api/user/"+username+"/disable";
-     return this.http.get(url, { withCredentials: true });
+     //let url = "http://localhost:8090/admin/deleteUser/"+username;
+     //return this.http.get(url);
    }
 
 }

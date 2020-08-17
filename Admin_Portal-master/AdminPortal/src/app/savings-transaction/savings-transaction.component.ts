@@ -10,19 +10,19 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class SavingsTransactionComponent implements OnInit {
 
-  username:string;
+  userAcc:string;
 	savingsTransactionList: Object[];
 
 	constructor(private route: ActivatedRoute, private userService: UserService) {
 		this.route.params.forEach((params: Params) => {
-     		this.username = params['username'];
+     		this.userAcc = params['userAcc'];
 		});
 
 		this.getSavingsTransactionList();
 	}
 
 	getSavingsTransactionList() {
-		this.userService.getSavingsTransactionList(this.username).subscribe(
+		this.userService.getSavingsTransactionList(this.userAcc).subscribe(
 			res => {
 				console.log(JSON.parse(JSON.stringify(res))._body);
         		this.savingsTransactionList = JSON.parse(JSON.stringify(res));

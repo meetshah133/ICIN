@@ -9,19 +9,19 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class PrimaryTransactionComponent implements OnInit {
 
-  username:string;
+    userAcc:any;
 	primaryTransactionList: Object[];
 
 	constructor(private route: ActivatedRoute, private userService: UserService) {
 		this.route.params.forEach((params: Params) => {
-     		this.username = params['username'];
+     		this.userAcc = params['userAcc'];
 		});
 
 		this.getPrimaryTransactionList();
 	}
 
 	getPrimaryTransactionList() {
-		this.userService.getPrimaryTransactionList(this.username).subscribe(
+		this.userService.getPrimaryTransactionList(this.userAcc).subscribe(
 			res => {
 				console.log(JSON.parse(JSON.stringify(res))._body);
         		this.primaryTransactionList = JSON.parse(JSON.stringify(res));

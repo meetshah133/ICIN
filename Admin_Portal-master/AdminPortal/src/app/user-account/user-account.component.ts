@@ -24,12 +24,12 @@ export class UserAccountComponent implements OnInit {
 		)
 	}
 
-	onSelectPrimary(username: string) {
-    	this.router.navigate(['/primaryTransaction', username]);
+	onSelectPrimary(userAcc: any) {
+    	this.router.navigate(['/primaryTransaction', userAcc]);
   	}	
 
-  	onSelectSavings(username: string) {
-    	this.router.navigate(['/savingsTransaction', username]);
+  	onSelectSavings(userAcc: any) {
+    	this.router.navigate(['/savingsTransaction', userAcc]);
   	}	
 
   	enableUser(username: string) {
