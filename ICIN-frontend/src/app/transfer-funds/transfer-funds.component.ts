@@ -66,6 +66,7 @@ export class TransferFundsComponent implements OnInit {
       console.log("Invalid")
     }
     else{
+      if(this.balanceFund>this.transferFundForm.get("amountToBeTransfered").value){
       let description = this.transferFundForm.get("optionalMessage").value?this.transferFundForm.get("optionalMessage").value:"Fund Transfer"
       let newTransaction = new Transaction(description,
       Number(this.transferFundForm.get("amountToBeTransfered").value),
@@ -74,9 +75,13 @@ export class TransferFundsComponent implements OnInit {
       console.log(newTransaction);
       this.service.transferFund(newTransaction).subscribe(
         response => alert("Transaction Successfull"),
-        error => alert("Transaction failed")
+        error => alert("Transaction failed \nIncorrect benificiary account number")
       );
-    } 
+      }else
+      {
+        alert("Insufficient funds")
+      }  } 
+  
   }
 
   public onChange(event): void {  // event will give you full breif of action

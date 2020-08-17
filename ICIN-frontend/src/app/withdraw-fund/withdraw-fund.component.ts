@@ -54,6 +54,7 @@ export class WithdrawFundComponent implements OnInit {
     }
     else{
     if(this.withdrawFundForm.get("accountType").value === "Primary Account"){
+    if(this.withdrawFundForm.get("amountToBeDeposited").value<Number(sessionStorage.getItem("primaryAccountBalance"))){
     this.service.withdrawMoney("Primary",Number(sessionStorage.getItem("primaryAccountNumber")),Number(this.withdrawFundForm.get("amountToBeDeposited").value)).subscribe(
       response =>{ 
         console.log(response)
@@ -65,15 +66,19 @@ export class WithdrawFundComponent implements OnInit {
         console.log(error)
       }
     )
+    }else{
+      alert("Insufficient Funds")
+    }
     }
     else{
+     if(this.withdrawFundForm.get("amountToBeDeposited").value<Number(sessionStorage.getItem("savingAccountBalance"))){
       this.service.withdrawMoney("Savings",Number(sessionStorage.getItem("savingAccountNumber")),Number(this.withdrawFundForm.get("amountToBeDeposited").value)).subscribe(
         response =>{ 
           let updatedBalance 
           console.log(response)
-          if(this.withdrawFundForm.get("amountToBeDeposited").value>Number(sessionStorage.getItem("savingAccountBalance")))
+          if(this.withdrawFundForm.get("amountToBeDeposited").value<Number(sessionStorage.getItem("savingAccountBalance")))
           {
-          updatedBalance = Number(this.withdrawFundForm.get("amountToBeDeposited").value) - Number(sessionStorage.getItem("savingAccountBalance"))
+          updatedBalance =   Number(sessionStorage.getItem("savingAccountBalance")) - Number(this.withdrawFundForm.get("amountToBeDeposited").value)
           sessionStorage.setItem("savingAccountBalance",String(updatedBalance));
           }
           alert("Money Withdrawn successfully!!")
@@ -83,7 +88,9 @@ export class WithdrawFundComponent implements OnInit {
           alert("Transaction Failed")
           console.log(error)
         }
-      )
+      )}else{
+        alert("Insufficient Funds")
+      }
     }
   }
 }
