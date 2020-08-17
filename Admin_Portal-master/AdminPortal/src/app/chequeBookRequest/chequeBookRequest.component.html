@@ -6,8 +6,8 @@
 		<tr>
 			<th>Request Id</th>
 			<th>User Name</th>
-			<th>Date</th>
-			<th>Description</th>
+			<th>Contact Number</th>
+			<th>Account Number</th>
 			<th>Confirmed?</th>
 			<th>Action</th>
 		</tr>
@@ -15,11 +15,14 @@
 	<tbody>
 		<tr *ngFor="let chequeBookRequest of chequeBookRequestList">
 			<td>{{chequeBookRequest.id}}</td>
-			<td>{{chequeBookRequest.user.username}}</td>
-			<td>{{chequeBookRequest.date | date: 'MM/dd/yyyy - hh:mm'}}</td>
-			<td>{{chequeBookRequest.description}}</td>
-			<td>{{chequeBookRequest.confirmed}}</td>
-			<td [hidden]="chequeBookRequest.confirmed"><a (click)="confirmChequeBookRequest(chequeBookRequest.id)" style="cursor: pointer;">Confirm</a></td>
+			<td>{{chequeBookRequest["user"]["fullname"]}} {{chequeBookRequest["user"]["surname"]}}</td>
+			<td>{{chequeBookRequest["user"]["phonenumber"]}}</td>
+			<td>{{chequeBookRequest["user"]["primaryAccount"]["accountNumber"]}}</td>
+			<td> <p *ngIf="chequeBookRequest['accepted']" > Confirmed</p>
+				<p *ngIf="!chequeBookRequest['accepted']" > Pending</p>
+			</td>
+
+			<td [hidden]="chequeBookRequest.confirmed"><a *ngIf="!chequeBookRequest['accepted']" (click)="confirmChequeBookRequest(chequeBookRequest.id)" style="cursor: pointer;">Confirm</a></td>
 			<!-- <td [hidden]="!user.enabled"><a (click)="disableUser(user.username)" style="cursor: pointer;">Disable</a></td> -->
 		</tr>
 	</tbody>

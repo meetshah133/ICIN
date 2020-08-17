@@ -18,7 +18,8 @@ export class ChequeBookRequestComponent implements OnInit {
 	getChequeBookRequestList() {
 		this.chequeBookRequestService.getChequeBookRequestList().subscribe(
 			res => {
-        		this.chequeBookRequestList = JSON.parse(JSON.stringify(res));
+				this.chequeBookRequestList = JSON.parse(JSON.stringify(res));
+				console.log(this.chequeBookRequestList);
       		},
       		error => console.log(error)
 		)

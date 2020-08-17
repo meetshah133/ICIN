@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="11575" started-at="2020-08-17T03:35:20 IST" finished-at="2020-08-17T03:35:32 IST">
+  <suite name="Default suite" duration-ms="11369" started-at="2020-08-17T12:30:45 IST" finished-at="2020-08-17T12:30:57 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="11575" started-at="2020-08-17T03:35:20 IST" finished-at="2020-08-17T03:35:32 IST">
-      <class name="frontEndTesting.WithdrawFundTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:frontEndTesting.WithdrawFundTest@7494e528]" name="setUp" is-config="true" duration-ms="6378" started-at="2020-08-17T03:35:20 IST" finished-at="2020-08-17T03:35:26 IST">
+    <test name="Default test" duration-ms="11369" started-at="2020-08-17T12:30:45 IST" finished-at="2020-08-17T12:30:57 IST">
+      <class name="frontEndTesting.RegistrationTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:frontEndTesting.RegistrationTest@7494e528]" name="setUp" is-config="true" duration-ms="6515" started-at="2020-08-17T12:30:45 IST" finished-at="2020-08-17T12:30:52 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="withdrawFundInPrimaryAccount()[pri:0, instance:frontEndTesting.WithdrawFundTest@7494e528]" name="withdrawFundInPrimaryAccount" duration-ms="1815" started-at="2020-08-17T03:35:26 IST" finished-at="2020-08-17T03:35:28 IST">
+        <test-method status="PASS" signature="registerUser()[pri:0, instance:frontEndTesting.RegistrationTest@7494e528]" name="registerUser" duration-ms="4802" started-at="2020-08-17T12:30:52 IST" finished-at="2020-08-17T12:30:57 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- withdrawFundInPrimaryAccount -->
-        <test-method status="PASS" signature="withdrawFundInSavingAccount()[pri:0, instance:frontEndTesting.WithdrawFundTest@7494e528]" name="withdrawFundInSavingAccount" duration-ms="1657" started-at="2020-08-17T03:35:28 IST" finished-at="2020-08-17T03:35:30 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- withdrawFundInSavingAccount -->
-        <test-method status="PASS" signature="withdrawingAmountGreaterThanCurrentAmounForSavingsAccount()[pri:0, instance:frontEndTesting.WithdrawFundTest@7494e528]" name="withdrawingAmountGreaterThanCurrentAmounForSavingsAccount" duration-ms="1636" started-at="2020-08-17T03:35:30 IST" finished-at="2020-08-17T03:35:32 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- withdrawingAmountGreaterThanCurrentAmounForSavingsAccount -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:frontEndTesting.WithdrawFundTest@7494e528]" name="cleanUp" is-config="true" duration-ms="2" started-at="2020-08-17T03:35:32 IST" finished-at="2020-08-17T03:35:32 IST">
+        </test-method> <!-- registerUser -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:frontEndTesting.RegistrationTest@7494e528]" name="cleanUp" is-config="true" duration-ms="0" started-at="2020-08-17T12:30:57 IST" finished-at="2020-08-17T12:30:57 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
-      </class> <!-- frontEndTesting.WithdrawFundTest -->
+      </class> <!-- frontEndTesting.RegistrationTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
