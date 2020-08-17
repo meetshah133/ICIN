@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="TransferFundTest(failed)">
+    <classes>
+      <class name="frontEndTesting.TransferFundTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="transferFund"/>
+          <include name="cleanUp"/>
+        </methods>
+      </class> <!-- frontEndTesting.TransferFundTest -->
+    </classes>
+  </test> <!-- TransferFundTest(failed) -->
+  <test thread-count="5" name="WithdrawFundTest(failed)">
+    <classes>
+      <class name="frontEndTesting.WithdrawFundTest">
+        <methods>
+          <include name="withdrawFundInPrimaryAccount"/>
+          <include name="withdrawingAmountGreaterThanCurrentAmounForPrimaryAccount"/>
+          <include name="withdrawingAmountGreaterThanCurrentAmounForSavingsAccount"/>
+          <include name="setUp"/>
+          <include name="cleanUp"/>
+          <include name="withdrawFundInSavingAccount"/>
+        </methods>
+      </class> <!-- frontEndTesting.WithdrawFundTest -->
+    </classes>
+  </test> <!-- WithdrawFundTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

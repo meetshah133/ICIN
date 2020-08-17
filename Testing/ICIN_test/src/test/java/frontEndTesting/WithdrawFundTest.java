@@ -61,6 +61,8 @@ public class WithdrawFundTest {
 	
 	@Test
 	public void withdrawingAmountGreaterThanCurrentAmounForSavingsAccount() throws InterruptedException {
+		Thread.sleep(1000L);
+		driver.navigate().back();
 		driver.findElement(By.id("withdrawFudSection")).click();
 		Select accounts = new Select(driver.findElement(By.id("accountType")));
 		accounts.selectByIndex(1);
@@ -91,7 +93,7 @@ public class WithdrawFundTest {
 	
 	@AfterTest
 	public void cleanUp() {
-		//driver.close();
+		driver.close();
 	}
 
 }

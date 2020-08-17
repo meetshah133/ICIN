@@ -8,4 +8,5 @@ public interface UserService {
     User findByEmail(String email);
 	User findByUsername(String name);
 	User findByFullname(String name);
+	
 }

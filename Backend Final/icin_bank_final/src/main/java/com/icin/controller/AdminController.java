@@ -60,7 +60,7 @@ AdminService adminservice;
 	public void deleteuser(@PathVariable("id") long id) throws ResourceNotFoundException
 	{
 		try {
-			adminservice.deleteUserById(id);
+			adminservice.deleteById(id);
 		}
 		catch(Exception e) {
 			throw new ResourceNotFoundException("User not found for this id :: " + id);

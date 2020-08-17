@@ -23,10 +23,11 @@ public class LoginTest {
 	}
 	
 	@Test
-	public  void loginUser() {
+	public  void loginUser() throws InterruptedException {
 		driver.findElement(By.cssSelector("input[name='email']")).sendKeys("meetshah133@gmail.com");
 		driver.findElement(By.cssSelector("input[name='password']")).sendKeys("abc@1234");
 		driver.findElement(By.id("loginButton")).click();
+		Thread.sleep(1000L);
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/user/home");
 
 	}

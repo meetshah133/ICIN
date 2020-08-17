@@ -32,7 +32,7 @@ public class DepositFundTest {
 		driver.findElement(By.id("depositFundSection")).click();
 
 		//Depositing money in primary account
-		driver.findElement(By.id("amountToBeDeposited")).sendKeys("100");
+		driver.findElement(By.id("amountToBeDeposited")).sendKeys("1000");
 		
 		driver.findElement(By.id("depositMoneyButton")).click();
 		Thread.sleep(1000L);
@@ -48,7 +48,7 @@ public class DepositFundTest {
 		Select accounts = new Select(driver.findElement(By.id("accountType")));
 		accounts.selectByIndex(1);
 		//Depositing money in saving account
-		driver.findElement(By.id("amountToBeDeposited")).sendKeys("100");
+		driver.findElement(By.id("amountToBeDeposited")).sendKeys("1000");
 		
 		driver.findElement(By.id("depositMoneyButton")).click();
 		Thread.sleep(1000L);
@@ -60,7 +60,7 @@ public class DepositFundTest {
 	
 	@AfterTest
 	public void cleanUp() {
-		//driver.close();
+		driver.close();
 	}
 
 }

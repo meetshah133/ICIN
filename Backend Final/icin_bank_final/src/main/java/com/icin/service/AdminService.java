@@ -23,7 +23,7 @@ com.icin.dao.MyRepo repo;
 		
 	}
 	
-	public void deleteUserById(long id) {
+	public void deleteById(long id) {
 		repo.delete(repo.findById(id));
 		
 	}	

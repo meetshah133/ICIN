@@ -1,16 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test  name="Test">
+  <test  name="Registration">
     <classes>
     	<class name="frontEndTesting.RegistrationTest"/>
-    	<class name="frontEndTesting.LoginTest"/>
-      <class name="frontEndTesting.ViewPrimaryAccountTest"/>
-      <class name="frontEndTesting.DepositFundTest"/> 
-      <class name="frontEndTesting.ViewSecondaryAccountTest"/>
-      <class name="frontEndTesting.TransferFundTest"/>
-      <class name="frontEndTesting.WithdrawFundTest"/>
-      <class name="frontEndTesting.RequestChequeBookTest"/>
     </classes>
-  </test> <!-- Test -->
+    </test>
+     <test  name="Login">
+    <classes>
+    	<class name="frontEndTesting.LoginTest"/>
+    </classes>
+    </test>
+     
+     <test  name="ViewPrimaryAccountTest">
+    <classes>
+    	<class name="frontEndTesting.ViewPrimaryAccountTest"/>
+    </classes>
+    </test>
+     <test  name="DepositFundTest">
+    <classes>
+    	<class name="frontEndTesting.DepositFundTest"/>
+    </classes>
+    </test>
+     <test  name="ViewSecondaryAccountTest">
+    <classes>
+    	<class name="frontEndTesting.ViewSecondaryAccountTest"/>
+    </classes>
+    </test>
+ 
+    	
+    	<test  name="TransferFundTest">
+    <classes>
+    	<class name="frontEndTesting.TransferFundTest"/>
+    </classes>
+    </test>
+    	
+    	<test  name="WithdrawFundTest">
+    <classes>
+    	<class name="frontEndTesting.WithdrawFundTest"/>
+    </classes>
+    </test>
+    	
+    	<test  name="RequestChequeBookTest">
+    <classes>
+    	<class name="frontEndTesting.RequestChequeBookTest"/>
+    </classes>
+    </test>
+
 </suite> <!-- Suite -->
