@@ -33,8 +33,8 @@ public class TransferFundTest {
 		driver.findElement(By.linkText("Transfer")).click();;
 		
 		//Filling Up transfer fund form
-		driver.findElement(By.id("beneficiaryName")).sendKeys("Sunil Vyas");
-		driver.findElement(By.id("beneficiaryAccountNumber")).sendKeys("110004445551");
+		driver.findElement(By.id("beneficiaryName")).sendKeys("Rahul Jain");
+		driver.findElement(By.id("beneficiaryAccountNumber")).sendKeys("22113346");
 		driver.findElement(By.id("beneficiaryIFSCCode")).sendKeys("ICIN00105");
 		driver.findElement(By.id("amountToBeTransfered")).sendKeys("100");
 		driver.findElement(By.id("description")).sendKeys("Fund Transfer");
@@ -45,15 +45,59 @@ public class TransferFundTest {
 		System.out.println(text);
 		alert.accept();
 		assertEquals(text, "Transaction Successfull");
+		driver.navigate().back();
 		
 		
-
+}
+	
+	@Test
+public void transferFundGreaterThanBalance() throws InterruptedException  {
 		
-
-	}
+		driver.findElement(By.linkText("Transfer")).click();;
+		
+		//Filling Up transfer fund form
+		driver.findElement(By.id("beneficiaryName")).sendKeys("Rahul Jain");
+		driver.findElement(By.id("beneficiaryAccountNumber")).sendKeys("22113346");
+		driver.findElement(By.id("beneficiaryIFSCCode")).sendKeys("ICIN00105");
+		driver.findElement(By.id("amountToBeTransfered")).sendKeys("10000");
+		driver.findElement(By.id("description")).sendKeys("Fund Transfer");
+		driver.findElement(By.id("tranferFundButton")).click();
+		Thread.sleep(2000L);
+		Alert alert = driver.switchTo().alert();
+		String text = alert.getText();
+		System.out.println(text);
+		alert.accept();
+		assertEquals(text, "Insufficient funds");
+		driver.navigate().back();
+		
+		
+}
+	@Test
+public void transferFundWithIncorrectAccountNumber() throws InterruptedException  {
+		
+		driver.findElement(By.linkText("Transfer")).click();;
+		
+		//Filling Up transfer fund form
+		driver.findElement(By.id("beneficiaryName")).sendKeys("Rahul Jain");
+		driver.findElement(By.id("beneficiaryAccountNumber")).sendKeys("221133467");
+		driver.findElement(By.id("beneficiaryIFSCCode")).sendKeys("ICIN00105");
+		driver.findElement(By.id("amountToBeTransfered")).sendKeys("10");
+		driver.findElement(By.id("description")).sendKeys("Fund Transfer");
+		driver.findElement(By.id("tranferFundButton")).click();
+		Thread.sleep(2000L);
+		Alert alert = driver.switchTo().alert();
+		String text = alert.getText();
+		System.out.println(text);
+		alert.accept();
+		//assertEquals(text, "Transaction failed Incorrect benificiary account number");
+		driver.navigate().back();
+		
+		
+}
+	
 	
 	@AfterTest
 	public void cleanUp() {
-		//driver.close();
+		driver.close();
 	}
 }

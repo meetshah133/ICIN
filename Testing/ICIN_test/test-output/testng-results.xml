@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="11369" started-at="2020-08-17T12:30:45 IST" finished-at="2020-08-17T12:30:57 IST">
+  <suite name="Default suite" duration-ms="17116" started-at="2020-08-17T21:31:05 IST" finished-at="2020-08-17T21:31:22 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="11369" started-at="2020-08-17T12:30:45 IST" finished-at="2020-08-17T12:30:57 IST">
+    <test name="Default test" duration-ms="17116" started-at="2020-08-17T21:31:05 IST" finished-at="2020-08-17T21:31:22 IST">
       <class name="frontEndTesting.RegistrationTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:frontEndTesting.RegistrationTest@7494e528]" name="setUp" is-config="true" duration-ms="6515" started-at="2020-08-17T12:30:45 IST" finished-at="2020-08-17T12:30:52 IST">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:frontEndTesting.RegistrationTest@7494e528]" name="setUp" is-config="true" duration-ms="11820" started-at="2020-08-17T21:31:05 IST" finished-at="2020-08-17T21:31:17 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="registerUser()[pri:0, instance:frontEndTesting.RegistrationTest@7494e528]" name="registerUser" duration-ms="4802" started-at="2020-08-17T12:30:52 IST" finished-at="2020-08-17T12:30:57 IST">
+        <test-method status="PASS" signature="registerUser()[pri:0, instance:frontEndTesting.RegistrationTest@7494e528]" name="registerUser" duration-ms="5230" started-at="2020-08-17T21:31:17 IST" finished-at="2020-08-17T21:31:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- registerUser -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:frontEndTesting.RegistrationTest@7494e528]" name="cleanUp" is-config="true" duration-ms="0" started-at="2020-08-17T12:30:57 IST" finished-at="2020-08-17T12:30:57 IST">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:frontEndTesting.RegistrationTest@7494e528]" name="cleanUp" is-config="true" duration-ms="1" started-at="2020-08-17T21:31:22 IST" finished-at="2020-08-17T21:31:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->

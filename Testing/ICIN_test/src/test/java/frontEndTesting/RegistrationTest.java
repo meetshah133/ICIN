@@ -32,7 +32,7 @@ public class RegistrationTest {
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/register/contactDetails");
 		
 		//Contact Details
-		driver.findElement(By.cssSelector("input[name='email'")).sendKeys("meetshah133@gmail.com");
+		driver.findElement(By.cssSelector("input[name='email'")).sendKeys("meetshah123@gmail.com");
 		driver.findElement(By.cssSelector("input[name='phone'")).sendKeys("9699011837");
 		driver.findElement(By.id("next")).click();
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/register/kycDetails");
@@ -67,6 +67,6 @@ public class RegistrationTest {
 	
 	@AfterTest
 	public void cleanUp() {
-		//driver.close();
+		driver.close();
 	}
 }

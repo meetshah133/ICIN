@@ -71,7 +71,7 @@ public class WithdrawFundTest {
 		Thread.sleep(1000L);
 		Alert alert = driver.switchTo().alert();
 		String message = alert.getText();
-		assertEquals(message, "Transaction Failed");
+		assertEquals(message, "Insufficient Funds");
 		alert.accept();
 	}
 	@Test
@@ -85,7 +85,7 @@ public class WithdrawFundTest {
 		Thread.sleep(1000L);
 		Alert alert = driver.switchTo().alert();
 		String message = alert.getText();
-		assertEquals(message, "Transaction Failed");
+		assertEquals(message, "Insufficient Funds");
 		alert.accept();
 	}
 	

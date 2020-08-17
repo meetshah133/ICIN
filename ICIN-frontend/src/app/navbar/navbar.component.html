@@ -32,12 +32,12 @@
         
         </li>
         <li class="nav-item dropdown" *ngIf="service.isUserLogin()">
-          <a class="nav-link dropdown-toggle ml-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle ml-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="chequebookRequestLink">
             Request
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="handleChequeBookRequest('Primary Account')">Chequebook for Primary Account</a>
-            <a class="dropdown-item" (click)="handleChequeBookRequest('Saving Account')">Chequebook for Saving Account</a>
+            <a class="dropdown-item" (click)="handleChequeBookRequest('Primary Account')" id="chequebookRequestPrimary">Chequebook for Primary Account</a>
+            <a class="dropdown-item" (click)="handleChequeBookRequest('Saving Account')" id="chequebookRequestSaving">Chequebook for Saving Account</a>
           </div>
         </li>
       </ul>

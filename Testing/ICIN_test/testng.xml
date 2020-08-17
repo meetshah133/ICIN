@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test  name="Test">
+    <classes>
+    	<class name="frontEndTesting.RegistrationTest"/>
+    	<class name="frontEndTesting.LoginTest"/>
+      <class name="frontEndTesting.ViewPrimaryAccountTest"/>
+      <class name="frontEndTesting.DepositFundTest"/> 
+      <class name="frontEndTesting.ViewSecondaryAccountTest"/>
+      <class name="frontEndTesting.TransferFundTest"/>
+      <class name="frontEndTesting.WithdrawFundTest"/>
+      <class name="frontEndTesting.RequestChequeBookTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

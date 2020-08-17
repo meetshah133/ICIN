@@ -12,11 +12,11 @@
 	</thead>
 	<tbody>
 		<tr *ngFor="let savingsTransaction of savingsTransactionList">
-			<td>{{{savingsTransaction.transactionId}}</td>
-			<td>{{{savingsTransaction.accNo}}</td>
-			<td>{{{savingsTransaction.date | date: 'MM/dd/yyyy'}} </td>
-			<td>{{{savingsTransaction.transactionType}}</td>
-			<td>{{{savingsTransaction.newBalance}}</td>
+			<td>{{savingsTransaction.transactionId}}</td>
+			<td>{{savingsTransaction.accNo}}</td>
+			<td>{{savingsTransaction.date | date: 'MM/dd/yyyy'}} </td>
+			<td>{{savingsTransaction.transactionType}}</td>
+			<td>{{savingsTransaction.newBalance}}</td>
 		</tr>
 	</tbody>
 </table>   

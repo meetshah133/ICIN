@@ -18,6 +18,7 @@ export class UserAccountComponent implements OnInit {
 	getUsers() {
 		this.userService.getUsers().subscribe(
 			res => {
+			console.log(res);
             this.userList = JSON.parse(JSON.stringify(res));
       		},
       		error => console.log(error)
@@ -33,12 +34,19 @@ export class UserAccountComponent implements OnInit {
   	}	
 
   	enableUser(username: string) {
-  		this.userService.enableUser(username).subscribe();
+  		//this.userService.enableUser(username).subscribe();
   		location.reload();
   	}
 
-  	disableUser(username: string) {
-  		this.userService.disableUser(username).subscribe();
+  	disableUser(username: number) {
+  		this.userService.disableUser(username).subscribe(
+			  response => {
+				  console.log(response)
+			  },
+			  error => {
+				  console.log(error)
+			  }
+		  );
   		location.reload();
   	}
 

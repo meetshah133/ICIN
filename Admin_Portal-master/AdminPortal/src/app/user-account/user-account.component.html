@@ -10,20 +10,21 @@
 			<th>Phone</th>
 			<th>Primary Account</th>
 			<th>Savings Account</th>
-			<th>User Status</th>
+			
 			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr *ngFor="let user of userList">
-			<td>{{user.fullName}}</td>
-			<td>{{user.lastName}}</td>
+			<td>{{user.fullname}}</td>
+			<td>{{user.surname}}</td>
 			<td>{{user.mailid}}</td>
 			<td>{{user.phonenumber}}</td>
-			<td><a (click)="onSelectPrimary(user.primaryAccount.accountNumber)" style="cursor: pointer;">{{user.primaryAccount.accountNumber}}</a></td>
-			<td><a (click)="onSelectSavings(user.savingsAccount.accountNumber)" style="cursor: pointer;">{{user.savingsAccount.accountNumber}}</a></td>
-			<td [hidden]="user.enabled"><a (click)="enableUser(user.emailId)" style="cursor: pointer;">Enable</a></td>
-			<td [hidden]="!user.enabled"><a (click)="disableUser(user.emailId)" style="cursor: pointer;">Disable</a></td>
+			<td><p (click)="onSelectPrimary(user.primaryAccount.accountNumber)" style="cursor: pointer;">{{user.primaryAccount.accountNumber}}</p></td>
+			<td><p (click)="onSelectSavings(user.savingsAccount.accountNumber)" style="cursor: pointer;">{{user.savingsAccount.accountNumber}}</p></td>
+			
+			<td [hidden]="!user.enabled"><a (click)="enableUser(user.emailId)" style="cursor: pointer;">Enable</a></td>
+			<td [hidden]="user.enabled"><a (click)="disableUser(user.id)" style="cursor: pointer;">Disable</a></td>
 		</tr>
 	</tbody>
 </table>   

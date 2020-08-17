@@ -23,13 +23,13 @@ export class UserService {
    }
 
    enableUser (username: string) {
-     //let url = "http://localhost:8090/api/user/"+username+"/enable";
-     //return this.http.get(url, { withCredentials: true });
+     let url = "http://localhost:8090/api/user/"+username+"/enable";
+     return this.http.get(url, { withCredentials: true });
    }
 
-   disableUser (username: string) {
-     //let url = "http://localhost:8090/admin/deleteUser/"+username;
-     //return this.http.get(url);
+   disableUser (username:number) {
+     let url = "http://localhost:8090/admin/admin/deleteuser/"+username;
+     return this.http.delete(url);
    }
 
 }
