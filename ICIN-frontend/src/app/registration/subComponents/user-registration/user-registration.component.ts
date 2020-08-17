@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormsModule,FormGroup,FormControl,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServicesService } from 'src/app/service/user-services.service';
+import { Md5 } from 'ts-md5';
 
 export class User {
   constructor( private fullname:String,
@@ -63,7 +64,8 @@ export class UserRegistrationComponent implements OnInit {
     }
   
     else{
-      sessionStorage.setItem("password",this.password);
+
+      sessionStorage.setItem("password",String(Md5.hashStr(this.password)));
       console.log("Done");
       this.service.addUSerToDb().subscribe( 
         response => {
@@ -93,5 +95,7 @@ export class UserRegistrationComponent implements OnInit {
     let valid = number.test(password) && letter.test(password); //match a letter _and_ a number
     return valid;
   }
+
+  
 
 }

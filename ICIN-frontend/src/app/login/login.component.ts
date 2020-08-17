@@ -3,6 +3,8 @@ import {FormsModule,FormGroup,FormBuilder,FormControl, Validators} from '@angula
 import { Router } from '@angular/router';
 import {UserServicesService} from '../service/user-services.service'
 import {User} from  '../registration/subComponents/user-registration/user-registration.component';
+import {Md5} from 'ts-md5/dist/md5';
+
 
 
 @Component({
@@ -27,7 +29,8 @@ export class LoginComponent implements OnInit {
    //  console.log(this.loginForm.get("username").value);
    
     if(!this.loginForm.invalid){
-      let newUser = new User("","",this.loginForm.get("email").value,null,"",this.loginForm.get("password").value,null,null);
+      console.log(String(Md5.hashStr(this.loginForm.get("password").value)))
+      let newUser = new User("","",this.loginForm.get("email").value,null,"",String(Md5.hashStr(this.loginForm.get("password").value)),null,null);
       this.service.authenticateUser(newUser).subscribe(
         response => {
           console.log(response),
@@ -61,5 +64,5 @@ export class LoginComponent implements OnInit {
 
   }
   get f() { return this.loginForm.controls; }
-  
+ 
 }
