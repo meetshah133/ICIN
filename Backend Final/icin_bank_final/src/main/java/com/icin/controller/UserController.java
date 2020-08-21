@@ -71,7 +71,7 @@ public class UserController {
 	
 	
 	@RequestMapping(path = "/admin", method = RequestMethod.POST)
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "http://localhost:4201")
 	public void doAdminLogin(@RequestBody Admin admin) throws Exception
 	{
 		String adminemail = admin.getEmailid();

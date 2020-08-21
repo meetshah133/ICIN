@@ -18,7 +18,7 @@ public class RegistrationTest {
 		System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromeDriver\\chromeDriver.exe");
 		driver =  new ChromeDriver(); 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
+	    driver.manage().window().maximize();
 		driver.get("http://localhost:4200/register");
 	}
 	
@@ -32,7 +32,7 @@ public class RegistrationTest {
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/register/contactDetails");
 		
 		//Contact Details
-		driver.findElement(By.cssSelector("input[name='email'")).sendKeys("meetshah133@gmail.com");
+		driver.findElement(By.cssSelector("input[name='email'")).sendKeys("test123@gmail.com");
 		driver.findElement(By.cssSelector("input[name='phone'")).sendKeys("9699011837");
 		driver.findElement(By.id("next")).click();
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/register/kycDetails");
@@ -75,8 +75,8 @@ public class RegistrationTest {
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/register/contactDetails");
 		
 		//Contact Details
-		driver.findElement(By.cssSelector("input[name='email'")).sendKeys("test@gmail.com");
-		driver.findElement(By.cssSelector("input[name='phone'")).sendKeys("9699011837");
+		driver.findElement(By.cssSelector("input[name='email'")).sendKeys("rahuljain1@gmail.com");
+		driver.findElement(By.cssSelector("input[name='phone'")).sendKeys("7699011589");
 		driver.findElement(By.id("next")).click();
 		assertEquals(driver.getCurrentUrl(), "http://localhost:4200/register/kycDetails");
 		

@@ -66,22 +66,33 @@ export class TransferFundsComponent implements OnInit {
       console.log("Invalid")
     }
     else{
-      if(this.balanceFund>this.transferFundForm.get("amountToBeTransfered").value){
-      let description = this.transferFundForm.get("optionalMessage").value?this.transferFundForm.get("optionalMessage").value:"Fund Transfer"
-      let newTransaction = new Transaction(description,
-      Number(this.transferFundForm.get("amountToBeTransfered").value),
-      Number(sessionStorage.getItem("primaryAccountNumber")),
-      Number(this.transferFundForm.get("beneficiaryAccountNumber").value),"ICN0001");
-      console.log(newTransaction);
-      this.service.transferFund(newTransaction).subscribe(
-        response => alert("Transaction Successfull"),
-        error => alert("Transaction failed \nIncorrect benificiary account number")
-      );
-      }else
-      {
-        alert("Insufficient funds")
-      }  } 
-  
+      if(Number(this.transferFundForm.get("amountToBeTransfered").value)%1===0){
+
+          if(this.balanceFund>this.transferFundForm.get("amountToBeTransfered").value){
+              let description = this.transferFundForm.get("optionalMessage").value?this.transferFundForm.get("optionalMessage").value:"Fund Transfer"
+              let newTransaction = new Transaction(description,
+              Number(this.transferFundForm.get("amountToBeTransfered").value),
+              Number(sessionStorage.getItem("primaryAccountNumber")),
+              Number(this.transferFundForm.get("beneficiaryAccountNumber").value),"ICN0001");
+              console.log(newTransaction);
+              this.service.transferFund(newTransaction).subscribe(
+                response => 
+                {
+                  alert("Transaction Successfull")
+                  this.route.navigate(["user","home"]);
+
+                },
+                error => alert("Transaction failed \nIncorrect benificiary account number")
+              );
+          }else
+          {
+            alert("Insufficient funds")
+          }  
+    }else{
+      alert("You cannot transfer fractional amount")
+    } 
+      
+    }
   }
 
   public onChange(event): void {  // event will give you full breif of action

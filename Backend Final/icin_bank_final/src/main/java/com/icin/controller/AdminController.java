@@ -23,7 +23,7 @@ import com.icin.exceptions.ResourceNotFoundException;
 
 @RestController
 @RequestMapping(path = "/admin",method = RequestMethod.GET)
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4201")
 public class AdminController {
 	
 @Autowired

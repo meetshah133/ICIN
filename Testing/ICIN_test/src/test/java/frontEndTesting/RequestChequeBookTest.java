@@ -19,7 +19,7 @@ public class RequestChequeBookTest {
 		System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromeDriver\\chromeDriver.exe");
 		driver =  new ChromeDriver(); 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
+	    driver.manage().window().maximize();
 		driver.get("localhost:4200/login");
 	}
 	

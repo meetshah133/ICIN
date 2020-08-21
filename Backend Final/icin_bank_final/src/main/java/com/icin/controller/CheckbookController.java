@@ -15,7 +15,7 @@ import com.icin.model.User;
 import com.icin.service.ChequeBookService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4201")
 public class CheckbookController{
 	
 	@Autowired
